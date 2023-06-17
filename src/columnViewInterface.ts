@@ -1,12 +1,8 @@
+import { colorPalette } from "./colorPalette";
 import { task } from "./taskInterface";
 
-interface columnColorPalette {
-      backgroundColor: string;
-      fontColor: string;
-      borderColor: string;
-}
 export interface columnView {
-      colorPalette: columnColorPalette;
+      colorPalette: colorPalette;
       getColumnElement(): Object;
       getColumnForShowIt(tasks: Array<task>): Object;
 }
