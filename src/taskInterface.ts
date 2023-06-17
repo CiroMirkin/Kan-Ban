@@ -4,5 +4,5 @@ interface taskInformation {
 }
 export interface task {
       information: taskInformation;
-      getTaskInformation(taskId: string): taskInformation;
+      getTaskElementForShowIt(): Object;
 }

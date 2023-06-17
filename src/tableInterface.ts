@@ -4,6 +4,6 @@ export interface table {
       name: string;
       columns: Array<Object>;
       addNewColumn(newColumn: column): any;
-      changeColumnToAnotherColumn(newColumn: column): any;
+      deleteColumn(columnId: string): any;
       showColumns(): any;
 }

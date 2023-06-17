@@ -1,10 +1,12 @@
+import { columnView } from "./columnViewInterface";
 import { task } from "./taskInterface";
 
 export interface column {
       name: string;
-      listOftask: Array<Object>;
+      id: string;
+      listOftask: Array<task>;
+      columnView: columnView;
       addNewTask(newTask: task): any;
-      deleteATask(taskId: string): any;
-      getATask(taskId: string): task;
-      showTasks(): any;
+      deleteTask(taskId: string): any;
+      getColumnElementForShowIt(): Object;
 }
