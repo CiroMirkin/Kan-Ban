@@ -1,8 +1,6 @@
-interface taskInformation {
+export interface task {
       id: string;
       text: string;
-}
-export interface task {
-      information: taskInformation;
+      getTaskInformation(): Object;
       getTaskElementForShowIt(): Object;
 }

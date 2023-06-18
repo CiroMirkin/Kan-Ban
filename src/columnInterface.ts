@@ -8,5 +8,6 @@ export interface column {
       columnView: columnView;
       addNewTask(newTask: task): any;
       deleteTask(taskId: string): any;
+      getTaskForMoveIt(taskId: string): task;
       getColumnElementForShowIt(): Object;
 }
