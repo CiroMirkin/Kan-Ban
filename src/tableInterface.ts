@@ -3,7 +3,7 @@ import { tableView } from "./tableViewInterface";
 
 export interface table {
       name: string;
-      columns: Array<Object>;
+      columns: Array<column>;
       tableView: tableView;
       addNewColumn(newColumn: column): any;
       deleteColumn(columnId: string): any;
