@@ -1,6 +1,10 @@
+interface taskInformation {
+      id: string;
+      text: string
+}
 export interface task {
       id: string;
       text: string;
-      getTaskInformation(): Object;
-      getTaskElementForShowIt(): Object;
+      getTaskInformation(): taskInformation;
+      getTaskElementForShowIt(): HTMLElement;
 }
