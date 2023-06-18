@@ -1,7 +1,7 @@
 import { columnView } from "./columnViewInterface";
 import { task } from "./taskInterface";
 
-interface columnInformation {
+export interface columnInformation {
       id: string;
       name: string;
 }

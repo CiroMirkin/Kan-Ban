@@ -1,4 +1,4 @@
-interface taskInformation {
+export interface taskInformation {
       id: string;
       text: string
 }
