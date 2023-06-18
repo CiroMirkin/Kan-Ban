@@ -3,6 +3,6 @@ import { task } from "./taskInterface";
 
 export interface columnView {
       colorPalette: colorPalette;
-      getColumnElement(): Object;
-      getColumnForShowIt(tasks: Array<task>): Object;
+      getColumnElement(): HTMLElement;
+      getColumnForShowIt(tasks: Array<task>): HTMLElement;
 }
