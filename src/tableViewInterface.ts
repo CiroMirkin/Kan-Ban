@@ -3,6 +3,6 @@ import { column } from "./columnInterface";
 
 export interface tableView {
       colorPalette: colorPalette;
-      getTableElement(): Object;
+      getTableElement(): HTMLElement;
       getTableForShowIt(columns: Array<column>): HTMLElement;
 }
