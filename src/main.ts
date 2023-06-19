@@ -1,24 +1,33 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
+import Column from "./column";
+import { column } from "./columnInterface";
+import DefaultTable from "./table"
+import { table } from "./tableInterface"
+import Task from "./task";
+import { task } from "./taskInterface";
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+const table: table = new DefaultTable();
+
+const addNewColumn  = (table: table, column: column): any => table.addNewColumn(column);
+
+addNewColumn(table, new Column('Tareas pendientes', '1'));
+addNewColumn(table, new Column('Tareas en proceso', '2'));
+addNewColumn(table, new Column('Tareas Terminadas', '3'));
+
+interface newTask {
+  table: table, 
+  columnId: string, 
+  task: task
+}
+
+const addNewTask = (newTask: newTask) => {
+  const columnId: number = Number(newTask.columnId);
+  const column: column = newTask.table.columns[columnId];
+  column.addNewTask(newTask.task);
+};
+
+addNewTask({
+  table, 
+  columnId: '0',
+  task: new Task('Hacer un cafe', '1')
+});
