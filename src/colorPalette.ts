@@ -1,5 +1,7 @@
 export interface colorPalette {
-      backgroundColor: string;
-      fontColor: string;
-      borderColor: string;
+      primary: string,
+      secondary: string,
+      ternary: string,
+      fontColor: string,
+      borderColor: string,
 }

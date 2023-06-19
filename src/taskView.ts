@@ -6,7 +6,9 @@ export default class TaskView implements taskView {
       colorPalette: colorPalette;
       constructor() {
             this.colorPalette = {
-                  backgroundColor: '',
+                  primary: '#B13126',
+                  secondary: 'EDE2C6',
+                  ternary:'#150B0E',
                   fontColor: '#150B0E',
                   borderColor: '#150B0E',
             }
