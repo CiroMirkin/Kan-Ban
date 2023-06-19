@@ -22,4 +22,9 @@ export default class DefautTableView implements tableView {
             })
             return table
       }
+      showTable(columns: Array<column>): any {
+            const table = this.getTableForShowIt(columns)
+            const tableContainer = document.getElementById('tableContainer')
+            tableContainer?.appendChild(table)
+      }
 }

@@ -20,8 +20,6 @@ export default class DefaultTable implements table {
             )
       }
       show(): any {
-            const table = this.tableView.getTableForShowIt([...this.columns])
-            const tableContainer = document.getElementById('tableContainer')
-            tableContainer?.appendChild(table)
+            this.tableView.showTable([...this.columns])
       }
 }
