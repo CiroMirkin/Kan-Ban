@@ -7,9 +7,9 @@ export default class Task implements task {
       id: string;
       text: string;
       taskView: taskView
-      constructor(text: string, id: string) {
-            this.text = text
-            this.id = id
+      constructor(taskInformation: taskInformation) {
+            this.text = taskInformation.text
+            this.id = taskInformation.id
             this.taskView = new TaskView()
 
       }

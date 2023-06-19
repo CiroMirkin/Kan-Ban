@@ -29,5 +29,8 @@ const addNewTask = (newTask: newTask) => {
 addNewTask({
   table, 
   columnId: '0',
-  task: new Task('Hacer un cafe', '1')
+  task: new Task({
+    id: '1',
+    text: 'hacer un cafe'
+  })
 });

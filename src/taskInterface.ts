@@ -1,7 +1,7 @@
 import { taskView } from "./taskViewInterface";
 
 export interface taskInformation {
-      id: string;
+      id: string,
       text: string
 }
 export interface task {
