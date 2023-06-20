@@ -13,14 +13,14 @@ Lista de caracteristicas:
 
 ## Dominio
 
-Clase *Table* que se asocia con la clase *Column*. La clase *Column* se almacena en un arreglo.
+Clase *Table* agrega a la clase *Column*. La clase *Column* se almacena en un arreglo.
 Clase *Table* se compone con la clase *TableView*.
 Clase *Table* implementa la interfaz *table*.
 
 Clase *TableView* implementa la interfaz *tableView*.
 Clase *TableView* depende de la clase *Table*.
 
-Clase *Column* se asocia con la clase *Task*. La clase *Task* se almacena en un arreglo.
+Clase *Column* agrega a la clase *Task*. La clase *Task* se almacena en un arreglo.
 Clase *Column* se compone con la clase *ColumnView*.
 Clase *Column* implementa la interfaz *column*.
 
