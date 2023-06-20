@@ -34,3 +34,7 @@ addNewTask({
     text: 'hacer un cafe'
   })
 });
+
+const showTable = (table: table) => table.show()
+
+showTable(table)

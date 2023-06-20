@@ -35,6 +35,10 @@ Clase *TaskView* depende de la clase *Task*.
 
 ## Diseño UI
 
+![UI diseño](https://i.postimg.cc/QdbBwTm2/Kan-Ban-Desing.png)
+
+[Figma](https://www.figma.com/file/0kf41Bkdv5guhAoJBRkgAn/Kan-Ban?type=design&node-id=1%3A5&t=9FKY6mhJblsCZ5iF-1)
+
 ### Prototipo
 
 ![UI prototipo diseño](https://i.postimg.cc/zvwMtxHC/Kan-Ban-Prototipe.png)
