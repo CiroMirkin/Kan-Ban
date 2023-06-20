@@ -1,5 +1,5 @@
 import { column, columnInformation } from "./columnInterface";
-import { columnView } from "./columnViewInterface";
+import { columnView, informationForShowTheColumn } from "./columnViewInterface";
 import { task } from "./taskInterface";
 import ColumnView from "./columnView";
 
@@ -37,7 +37,11 @@ export default class Column implements column {
 
       }
       getColumnElementForShowIt(): HTMLElement {
-            const column = this.columnView.getColumnForShowIt(this.listOftask)
+            const columnInformation: informationForShowTheColumn = {
+                  ...this.getColumnInformation(),
+                  listOfTask: [...this.listOftask] 
+            }
+            const column = this.columnView.getColumnForShowIt(columnInformation)
             return column
       }
 }
