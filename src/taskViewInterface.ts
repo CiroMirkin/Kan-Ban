@@ -3,7 +3,7 @@ import { task } from "./taskInterface";
 
 export interface taskView {
       colorPalette: colorPalette;
-      getTaskElement(): HTMLElement;
-      getOptionsTaskElement(): HTMLElement;
+      getTaskElement(taskId: string): HTMLElement;
+      getOptionsTaskElement(taskId: string): HTMLElement;
       getTaskElementForShowIt(task: task): HTMLElement;
 }
