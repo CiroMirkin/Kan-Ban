@@ -14,7 +14,9 @@ export default class DefautTableView implements tableView {
             }
       }
       getTableElement(): HTMLElement {
-            const table = document.createElement('UL')
+            const table = document.createElement('DIV')
+            table.classList.add('table')
+            table.setAttribute('id', 'table')
             return table
       }
       getTableForShowIt(columns: Array<column>): HTMLElement {
