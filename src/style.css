@@ -8,6 +8,9 @@
       --ternary-color: #150B0E;
       --font-color: #150B0E;
 
+      --border-1: 2px solid #150B0E;
+      --border-2: 4px solid #150B0E;
+
       color: var(--font-color);
       background-color: var(--secondary-color);
 
@@ -45,7 +48,7 @@ body {
       padding: 2px 0;
       padding-inline-start: 4px;
       border-radius: 0;
-      border: 2px solid #150B0E;
+      border: var(--border-1);
       border-inline-end: none;
       text-align: left;
       color: var(--font-color);
@@ -56,7 +59,7 @@ body {
 }
 .header__add-task button {
       width: 20px;
-      border: 2px solid #150B0E;
+      border: var(--border-1);
       border-radius: 0;
       color: var(--font-color);
       background-color: var(--secondary-color);
@@ -74,12 +77,19 @@ body {
       width: 100%;
 }
 .column__head {
+      margin: 5px 1rem;
+      padding: 1rem .5rem;
+      border: var(--border-2);
+      border-radius: 5px;
       text-align: center;
       color: var(--font-color);
 }
-.column ul {
-      padding: 0;
+.column__taskList {
+      margin: .5rem 1rem;
+      padding: .4rem;
       list-style: none;
+      border: var(--border-2);
+      border-radius: 5px;
 }
 
 /* Tasks */
