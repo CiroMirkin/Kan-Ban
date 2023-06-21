@@ -1,3 +1,5 @@
+import './style.css'
+
 import Column from "./column";
 import { column } from "./columnInterface";
 import DefaultTable from "./table"
