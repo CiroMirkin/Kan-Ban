@@ -77,15 +77,18 @@ body {
       width: 100%;
 }
 .column__head {
-      margin: 5px 1rem;
+      margin: 0 1rem;
       padding: 1rem .5rem;
       border: var(--border-2);
       border-radius: 5px;
+      font-size: 3ch;
+      font-weight: 600;
+      line-height: 2ch;
       text-align: center;
       color: var(--font-color);
 }
 .column__taskList {
-      margin: .5rem 1rem;
+      margin: 1rem;
       padding: .4rem;
       list-style: none;
       border: var(--border-2);
