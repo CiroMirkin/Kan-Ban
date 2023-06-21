@@ -7,7 +7,7 @@
       --secondary-color: #EDE2C6;
       --ternary-color: #150B0E;
       --font-color: #150B0E;
-      
+
       color: var(--font-color);
       background-color: var(--secondary-color);
 
@@ -20,7 +20,7 @@
 * {margin:0;padding:0;box-sizing:border-box;}
 
 body {
-      margin: 0;
+      background-color: var(--secondary-color);
 }
 
 .header {
@@ -29,9 +29,11 @@ body {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      background-color: var(--secondary-color);
 }
 .header h1 {
       font-size: 4ch;
+      color: var(--font-color);
 }
 .header__add-task {
       display: flex;
@@ -46,11 +48,18 @@ body {
       border: 2px solid #150B0E;
       border-inline-end: none;
       text-align: left;
+      color: var(--font-color);
+      background-color: var(--secondary-color);
+}
+.header__add-task textarea::placeholder {
+      color: var(--font-color);
 }
 .header__add-task button {
       width: 20px;
       border: 2px solid #150B0E;
       border-radius: 0;
+      color: var(--font-color);
+      background-color: var(--secondary-color);
 }
 
 .table {
@@ -59,9 +68,14 @@ body {
       padding: 0 10px;
       display: flex;
       justify-content: space-around;
+      background-color: var(--secondary-color);
 }
 .column {
       width: 100%;
+}
+.column__head {
+      text-align: center;
+      color: var(--font-color);
 }
 .column ul {
       padding: 0;
