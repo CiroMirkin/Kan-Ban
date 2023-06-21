@@ -12,6 +12,41 @@
       -moz-osx-font-smoothing: grayscale;
       -webkit-text-size-adjust: 100%;
 }    
+* {margin:0;padding:0;box-sizing:border-box;}
+
+body {
+      margin: 0;
+}
+
+.header {
+      padding: 0 2rem;
+      margin: 2rem 0 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+}
+.header h1 {
+      font-size: 4ch;
+}
+.header__add-task {
+      display: flex;
+      align-items: center;
+}
+.header__add-task textarea {
+      height: 22px;
+      max-height: 40px;
+      padding: 2px 0;
+      padding-inline-start: 4px;
+      border-radius: 0;
+      border: 2px solid #150B0E;
+      border-inline-end: none;
+      text-align: left;
+}
+.header__add-task button {
+      width: 20px;
+      border: 2px solid #150B0E;
+      border-radius: 0;
+}
 
 .table {
       width: 100%;

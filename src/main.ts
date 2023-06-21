@@ -7,7 +7,7 @@ document.querySelector<HTMLDivElement>('#header')!.innerHTML = `
   <header class="header">
     <button>Graficos</button>
     <h1>Kan-Ban</h1>
-    <form class="add-task" id="addNewTaskForm">
+    <form class="header__add-task" id="addNewTaskForm">
       <textarea name="newTask" id="newTask" cols="26" rows="1" placeholder="Nueva tarea..."></textarea>
       <button type="submit">+</button>
     </form>
