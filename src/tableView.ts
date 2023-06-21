@@ -27,8 +27,9 @@ export default class DefautTableView implements tableView {
             return table
       }
       showTable(columns: Array<column>): any {
-            const table = this.getTableForShowIt(columns)
-            const tableContainer = document.getElementById('tableContainer')
-            tableContainer?.appendChild(table)
+            const table = this.getTableForShowIt(columns);
+            const tableContainer: HTMLElement = document.querySelector<HTMLDivElement>('#tableContainer')!
+            tableContainer.innerHTML = '';
+            tableContainer.appendChild(table);
       }
 }

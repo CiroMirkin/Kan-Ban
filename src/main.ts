@@ -1,42 +1,36 @@
+import { addNewTaskToTheFirstColumn, getTable, showTable } from './app';
 import './style.css'
+import Task from './task';
+import { task } from './taskInterface';
 
-import Column from "./column";
-import { column } from "./columnInterface";
-import DefaultTable from "./table"
-import { table } from "./tableInterface"
-import Task from "./task";
-import { task } from "./taskInterface";
+document.querySelector<HTMLDivElement>('#header')!.innerHTML = `
+  <header class="header">
+    <button>Graficos</button>
+    <h1>Kan-Ban</h1>
+    <form class="add-task" id="addNewTaskForm">
+      <textarea name="newTask" id="newTask" cols="26" rows="1" placeholder="Nueva tarea..."></textarea>
+      <button type="submit">+</button>
+    </form>
+  </header>
+`
 
-
-const table: table = new DefaultTable();
-
-const addNewColumn  = (table: table, column: column): any => table.addNewColumn(column);
-
-addNewColumn(table, new Column('Tareas pendientes', '1'));
-addNewColumn(table, new Column('Tareas en proceso', '2'));
-addNewColumn(table, new Column('Tareas Terminadas', '3'));
-
-interface newTask {
-  table: table, 
-  columnId: string, 
-  task: task
-}
-
-const addNewTask = (newTask: newTask) => {
-  const columnId: number = Number(newTask.columnId);
-  const column: column = newTask.table.columns[columnId];
-  column.addNewTask(newTask.task);
-};
-
-addNewTask({
-  table, 
-  columnId: '0',
-  task: new Task({
+const getNewTask = (input: HTMLTextAreaElement): task => {
+  return new Task({
     id: '1',
-    text: 'hacer un cafe'
-  })
+    text: (input.value).trim()
+  }); 
+}
+const formElement: HTMLFormElement = document.querySelector<HTMLFormElement>('#addNewTaskForm')!;
+formElement.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const inputElement: HTMLTextAreaElement = document.querySelector<HTMLTextAreaElement>('#newTask')!;
+  const newTask = getNewTask(inputElement);
+  const table = getTable()
+  addNewTaskToTheFirstColumn({
+    table, 
+    columnId: '0',
+    task: newTask
+  });
+  inputElement.value = '';
+  showTable(table);
 });
-
-const showTable = (table: table) => table.show()
-
-showTable(table)
