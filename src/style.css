@@ -114,9 +114,18 @@ body {
       border-style: solid;
 }
 .task__text {
-      padding-inline-start: 5px;
+      display: block;
+      width: 100%;
+      min-height: 3rem;
+      padding-block: 12px;
+      padding-inline: 6px;
+      text-align: left;
+      font-size: 2ch;
+      overflow-wrap: break-word;
 }
 .task__header {
       width: 100%;
-      height: 15px;
+      height: 1.4rem;
+      border-bottom-width: 2px;
+      border-bottom-style: solid;
 }
