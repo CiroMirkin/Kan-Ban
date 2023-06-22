@@ -34,3 +34,16 @@ formElement.addEventListener('submit', (e) => {
   inputElement.value = '';
   showTable(table);
 });
+
+const tableElement: HTMLDivElement = document.querySelector<HTMLDivElement>('#tableContainer')!;
+tableElement.addEventListener('click', (e: MouseEvent) => {
+  if(isTask(e)) {
+    
+  }
+})
+
+const isTask = (e: MouseEvent): boolean => {
+  const itIsTheMoveButton: string = e.target.parentElement.classList[0]
+  const itIsAnOptionButton: string = e.target.parentElement.parentElement.classList[0]
+  return itIsAnOptionButton == 'task__footer' || itIsTheMoveButton == 'task__footer' 
+}
