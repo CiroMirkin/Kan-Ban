@@ -38,12 +38,15 @@ formElement.addEventListener('submit', (e) => {
 const tableElement: HTMLDivElement = document.querySelector<HTMLDivElement>('#tableContainer')!;
 tableElement.addEventListener('click', (e: MouseEvent) => {
   if(isTask(e)) {
-    
+    const option = getOption(e);
   }
 })
-
 const isTask = (e: MouseEvent): boolean => {
   const itIsTheMoveButton: string = e.target.parentElement.classList[0]
   const itIsAnOptionButton: string = e.target.parentElement.parentElement.classList[0]
   return itIsAnOptionButton == 'task__footer' || itIsTheMoveButton == 'task__footer' 
+}
+const getOption = (e: MouseEvent): string => {
+  const buttonOption: string = e.target.attributes['option'].nodeValue
+  return buttonOption
 }
