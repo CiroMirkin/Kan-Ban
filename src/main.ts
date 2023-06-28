@@ -1,6 +1,6 @@
 import { addNewTaskToTheFirstColumn, getTable, showTable } from './app';
 import './style.css'
-import TaskInFirstColumn from './defaultTasks';
+import TaskInFirstColumn, { OptionNamesOfTaskInFirstColumn } from './defaultTasks';
 import { task } from './taskInterface';
 
 document.querySelector<HTMLDivElement>('#header')!.innerHTML = `
@@ -38,7 +38,9 @@ formElement.addEventListener('submit', (e) => {
 const tableElement: HTMLDivElement = document.querySelector<HTMLDivElement>('#tableContainer')!;
 tableElement.addEventListener('click', (e: MouseEvent) => {
   if(isTask(e)) {
-    const option = getOption(e);
+    const optionName = getOption<OptionNamesOfTaskInFirstColumn>(e);
+    const taskId = getTaskId();
+    doActionOfTheOption<OptionNamesOfTaskInFirstColumn>(optionName, taskId);
   }
 })
 const isTask = (e: MouseEvent): boolean => {
@@ -46,7 +48,35 @@ const isTask = (e: MouseEvent): boolean => {
   const itIsAnOptionButton: string = e.target.parentElement.parentElement.classList[0]
   return itIsAnOptionButton == 'task__footer' || itIsTheMoveButton == 'task__footer' 
 }
-const getOption = (e: MouseEvent): string => {
-  const buttonOption: string = e.target.attributes['option'].nodeValue
-  return buttonOption
+function getOption<OptionNames>(e: MouseEvent): OptionNames {
+  const buttonOption = e.target.attributes['option'].nodeValue;
+  return buttonOption;
+}
+const getTaskId = (): string => '1';
+const moveNext = (taskId: string): any => {
+  console.log('next')
+}
+const movePrev = (taskId: string): any => {
+  console.log('prev')
+}
+const editIt = (taskId: string): any => {
+  console.log('edit')
+}
+const deleteIt = (taskId: string): any => {
+  console.log('delete')
+}
+const archiveIt = (taskId: string): any => {
+  console.log('archive')
+}
+function doActionOfTheOption<OptionNames>(nameOfOptionUserWillDo: OptionNames, taskId: string): any {
+  const actionsOfAllOptions = {
+    moveNext,
+    movePrev,
+    delete: deleteIt,
+    edit: editIt,
+    archive: archiveIt
+  }
+  Object.entries(actionsOfAllOptions).forEach(([option, action]) => {
+    if(option === nameOfOptionUserWillDo) action(taskId);
+  })
 }

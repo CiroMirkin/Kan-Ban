@@ -26,7 +26,7 @@ export default class TaskView implements taskView {
             const options = document.createElement('FOOTER')
             options.classList.add('task__footer')
             options.innerHTML = `
-                  <button class="task__move-task-btn" option="move-next">
+                  <button class="task__move-task-btn" option="moveNext">
                          --> <span class="color"></span>
                   </button>
                   <div class="task__options" id="${taskId}">
