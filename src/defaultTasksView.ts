@@ -2,7 +2,7 @@ import { taskView } from "./taskViewInterface";
 import { colorPalette } from "./colorPalette";
 import { task } from "./taskInterface";
 
-export default class TaskView implements taskView {
+export default class DefaultTaskView implements taskView {
       colorPalette: colorPalette;
       constructor() {
             this.colorPalette = {
