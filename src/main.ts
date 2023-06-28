@@ -43,13 +43,14 @@ tableElement.addEventListener('click', (e: MouseEvent) => {
     doActionOfTheOption<OptionNamesOfTaskInFirstColumn>(optionName, taskId);
   }
 })
-const isTask = (e: { target: HTMLElement }): boolean => {
+const isTask = (e: MouseEvent): boolean => {
   const itIsTheMoveButton: string = e.target.parentElement.classList[0]
   const itIsAnOptionButton: string = e.target.parentElement.parentElement.classList[0]
   return itIsAnOptionButton == 'task__footer' || itIsTheMoveButton == 'task__footer' 
 }
-function getOption<OptionNames>(e: { target: HTMLElement }): OptionNames {
-  const buttonOption = e.target.attributes['option'].nodeValue;
+function getOption<OptionNames>(e: MouseEvent): OptionNames {
+  const target = e.target as HTMLElement
+  const buttonOption = target.attributes['option'].nodeValue;
   return buttonOption;
 }
 const getTaskId = (): string => '1';
