@@ -40,7 +40,6 @@ tableElement.addEventListener('click', (e: MouseEvent) => {
   if(isTask(e)) {
     const optionName = getOption<OptionNamesOfTaskInFirstColumn>(e);
     const taskId: string = getTaskIdFromTaskElement(e);
-    console.log(taskId)
     doActionOfTheOption<OptionNamesOfTaskInFirstColumn>(optionName, taskId);
   }
 })
