@@ -39,7 +39,8 @@ const tableElement: HTMLDivElement = document.querySelector<HTMLDivElement>('#ta
 tableElement.addEventListener('click', (e: MouseEvent) => {
   if(isTask(e)) {
     const optionName = getOption<OptionNamesOfTaskInFirstColumn>(e);
-    const taskId = getTaskId();
+    const taskId: string = getTaskIdFromTaskElement(e);
+    console.log(taskId)
     doActionOfTheOption<OptionNamesOfTaskInFirstColumn>(optionName, taskId);
   }
 })
@@ -53,7 +54,12 @@ function getOption<OptionNames>(e: MouseEvent): OptionNames {
   const buttonOption = target.attributes['option'].nodeValue;
   return buttonOption;
 }
-const getTaskId = (): string => '1';
+const getTaskIdFromTaskElement = (e: MouseEvent): string => {
+  const element = e.target as HTMLElement;
+  const option1 = element.parentElement.id;
+  const option2 = element.parentElement.parentElement.id;
+  return (!option1) ? option2 : option1;
+}
 const moveNext = (taskId: string): any => {
   console.log('next')
 }
