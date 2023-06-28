@@ -1,6 +1,6 @@
 import { addNewTaskToTheFirstColumn, getTable, showTable } from './app';
 import './style.css'
-import Task from './task';
+import TaskInFirstColumn from './defaultTasks';
 import { task } from './taskInterface';
 
 document.querySelector<HTMLDivElement>('#header')!.innerHTML = `
@@ -15,7 +15,7 @@ document.querySelector<HTMLDivElement>('#header')!.innerHTML = `
 `
 
 const getNewTask = (input: HTMLTextAreaElement): task => {
-  return new Task({
+  return new TaskInFirstColumn({
     id: '1',
     text: (input.value).trim()
   }); 
