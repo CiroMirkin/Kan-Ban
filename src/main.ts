@@ -44,9 +44,8 @@ tableElement.addEventListener('click', (e: MouseEvent) => {
   }
 })
 const isTask = (e: MouseEvent): boolean => {
-  const itIsTheMoveButton: string = e.target.parentElement.classList[0]
   const itIsAnOptionButton: string = e.target.parentElement.parentElement.classList[0]
-  return itIsAnOptionButton == 'task__footer' || itIsTheMoveButton == 'task__footer' 
+  return itIsAnOptionButton == 'task__footer'
 }
 function getOption<OptionNames>(e: MouseEvent): OptionNames {
   const target = e.target as HTMLElement
@@ -54,10 +53,9 @@ function getOption<OptionNames>(e: MouseEvent): OptionNames {
   return buttonOption;
 }
 const getTaskIdFromTaskElement = (e: MouseEvent): string => {
-  const element = e.target as HTMLElement;
-  const option1 = element.parentElement.id;
-  const option2 = element.parentElement.parentElement.id;
-  return (!option1) ? option2 : option1;
+  const target = e.target as HTMLElement;
+  const element = target.parentElement.parentElement.id;
+  return element
 }
 const moveNext = (taskId: string): any => {
   console.log('next')
