@@ -64,12 +64,6 @@ const getTaskIdFromTaskElement = (e: MouseEvent): string => {
   }
   return element;
 }
-const moveNext = (taskId: string): any => {
-  console.log('next')
-}
-const movePrev = (taskId: string): any => {
-  console.log('prev')
-}
 const editIt = (taskId: string): any => {
   console.log('edit', taskId)
 }
