@@ -5,7 +5,7 @@ import { taskView } from "./taskViewInterface";
 
 export type OptionNamesOfDefaultTasks = 'delete' | 'edit' | 'archive'
 
-export default class TaskInFirstColumn implements task {
+export default class Task implements task {
       id: string;
       text: string;
       taskView: taskView
