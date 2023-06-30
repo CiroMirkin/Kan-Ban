@@ -76,8 +76,6 @@ const archiveIt = (taskId: string): any => {
 }
 function doActionOfTheOption<OptionNames>(nameOfOptionUserWillDo: OptionNames, taskId: string): any {
   const actionsOfAllOptions = {
-    moveNext,
-    movePrev,
     delete: deleteIt,
     edit: editIt,
     archive: archiveIt
