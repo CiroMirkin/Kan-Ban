@@ -39,23 +39,30 @@ const tableElement: HTMLDivElement = document.querySelector<HTMLDivElement>('#ta
 tableElement.addEventListener('click', (e: MouseEvent) => {
   if(isTask(e)) {
     const optionName = getOption<OptionNamesOfDefaultTasks>(e);
-    const taskId: string = getTaskIdFromTaskElement(e);
+    const taskId = getTaskIdFromTaskElement(e);
     doActionOfTheOption<OptionNamesOfDefaultTasks>(optionName, taskId);
   }
 })
 const isTask = (e: MouseEvent): boolean => {
-  const itIsAnOptionButton: string = e.target.parentElement.parentElement.classList[0]
-  return itIsAnOptionButton == 'task__footer'
+  const target = e.target as HTMLElement | null;
+  if (!target) {
+    return false;
+  }
+  const containerElement = target.parentElement?.parentElement;
+  return containerElement?.classList.contains('task__footer') || false;
 }
 function getOption<OptionNames>(e: MouseEvent): OptionNames {
-  const target = e.target as HTMLElement
-  const buttonOption = target.attributes['option'].nodeValue;
+  const target = e.target as HTMLElement;
+  const buttonOption = target.getAttribute('option') as OptionNames;
   return buttonOption;
 }
 const getTaskIdFromTaskElement = (e: MouseEvent): string => {
   const target = e.target as HTMLElement;
-  const element = target.parentElement.parentElement.id;
-  return element
+  const element = target.parentElement?.id || 'null';
+  if(element == 'null') {
+    throw new Error("Task ID undefined or the system can't find it.");
+  }
+  return element;
 }
 const moveNext = (taskId: string): any => {
   console.log('next')
@@ -64,13 +71,13 @@ const movePrev = (taskId: string): any => {
   console.log('prev')
 }
 const editIt = (taskId: string): any => {
-  console.log('edit')
+  console.log('edit', taskId)
 }
 const deleteIt = (taskId: string): any => {
-  console.log('delete')
+  console.log('delete', taskId)
 }
 const archiveIt = (taskId: string): any => {
-  console.log('archive')
+  console.log('archive', taskId)
 }
 function doActionOfTheOption<OptionNames>(nameOfOptionUserWillDo: OptionNames, taskId: string): any {
   const actionsOfAllOptions = {
