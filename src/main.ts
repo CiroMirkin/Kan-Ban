@@ -1,6 +1,6 @@
 import { addNewTaskToTheFirstColumn, getTable, showTable } from './app';
 import './style.css'
-import TaskInFirstColumn, { OptionNamesOfTaskInFirstColumn } from './defaultTasks';
+import TaskInFirstColumn, { OptionNamesOfDefaultTasks } from './defaultTasks';
 import { task } from './taskInterface';
 
 document.querySelector<HTMLDivElement>('#header')!.innerHTML = `
@@ -38,9 +38,9 @@ formElement.addEventListener('submit', (e) => {
 const tableElement: HTMLDivElement = document.querySelector<HTMLDivElement>('#tableContainer')!;
 tableElement.addEventListener('click', (e: MouseEvent) => {
   if(isTask(e)) {
-    const optionName = getOption<OptionNamesOfTaskInFirstColumn>(e);
+    const optionName = getOption<OptionNamesOfDefaultTasks>(e);
     const taskId: string = getTaskIdFromTaskElement(e);
-    doActionOfTheOption<OptionNamesOfTaskInFirstColumn>(optionName, taskId);
+    doActionOfTheOption<OptionNamesOfDefaultTasks>(optionName, taskId);
   }
 })
 const isTask = (e: MouseEvent): boolean => {
