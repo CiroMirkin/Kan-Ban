@@ -1,5 +1,5 @@
-import { column } from "./column/columnInterface";
-import { colorPalette } from "./colorPalette";
+import { column } from "../column/columnInterface";
+import { colorPalette } from "../colorPalette";
 import { tableView } from "./tableViewInterface"
 
 export default class DefautTableView implements tableView {

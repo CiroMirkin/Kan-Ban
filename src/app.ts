@@ -1,5 +1,5 @@
-import DefaultTable from "./table"
-import { table } from "./tableInterface"
+import DefaultTable from "./table/table"
+import { table } from "./table/tableInterface"
 import Column from "./column/column";
 import { column } from "./column/columnInterface";
 import { task } from "./task/taskInterface";
