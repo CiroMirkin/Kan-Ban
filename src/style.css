@@ -133,6 +133,7 @@ body {
       width: 80%;
       border-width: 2px;
       border-style: solid;
+      background-color: var(--secondary-color);
 }
 .task__text {
       display: block;
@@ -143,6 +144,7 @@ body {
       text-align: left;
       font-size: 2ch;
       overflow-wrap: break-word;
+      background-color: var(--secondary-color);
 }
 .task__header {
       width: 100%;
