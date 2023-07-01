@@ -60,7 +60,7 @@ body {
 .header__add-task textarea {
       width: 14rem;
       height: 46px;
-      resize: horizontal;
+      resize: vertical;
       padding: 7px 0;
       padding-inline-start: 6px;
       text-align: left;
