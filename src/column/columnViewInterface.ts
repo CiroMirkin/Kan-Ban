@@ -1,6 +1,6 @@
 import { colorPalette } from "../colorPalette";
 import { columnInformation } from "./columnInterface";
-import { task } from "../taskInterface";
+import { task } from "../task/taskInterface";
 
 export interface informationForShowTheColumn extends columnInformation {
       listOfTask: Array<task>

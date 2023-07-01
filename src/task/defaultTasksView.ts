@@ -1,5 +1,5 @@
 import { taskView } from "./taskViewInterface";
-import { colorPalette } from "./colorPalette";
+import { colorPalette } from "../colorPalette";
 import { task } from "./taskInterface";
 
 export default class DefaultTaskView implements taskView {

@@ -1,6 +1,6 @@
 import { colorPalette } from "../colorPalette";
 import { columnView, informationForShowTheColumn } from "./columnViewInterface";
-import { task } from "../taskInterface";
+import { task } from "../task/taskInterface";
 
 export default class ColumnView implements columnView {
       colorPalette: colorPalette;

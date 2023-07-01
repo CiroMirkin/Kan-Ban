@@ -1,4 +1,4 @@
-import { colorPalette } from "./colorPalette";
+import { colorPalette } from "../colorPalette";
 import { task } from "./taskInterface";
 
 export interface taskView {

@@ -1,7 +1,7 @@
 import { addNewTaskToTheFirstColumn, getTable, showTable } from './app';
 import './style.css'
-import Task, { OptionNamesOfDefaultTasks } from './defaultTasks';
-import { task } from './taskInterface';
+import Task, { OptionNamesOfDefaultTasks } from './task/defaultTasks';
+import { task } from './task/taskInterface';
 
 document.querySelector<HTMLDivElement>('#header')!.innerHTML = `
   <header class="header">
