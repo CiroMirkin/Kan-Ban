@@ -43,8 +43,9 @@ body {
       align-items: center;
 }
 .header__add-task textarea {
-      height: 30px;
-      max-height: 40px;
+      width: 4rem;
+      height: auto;
+      resize: none;
       padding: 7px 0;
       padding-inline-start: 4px;
       border-radius: 0;
