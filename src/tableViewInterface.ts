@@ -1,5 +1,5 @@
 import { colorPalette } from "./colorPalette";
-import { column } from "./columnInterface";
+import { column } from "./column/columnInterface";
 
 export interface tableView {
       colorPalette: colorPalette;

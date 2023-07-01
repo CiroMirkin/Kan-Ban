@@ -1,7 +1,7 @@
 import DefaultTable from "./table"
 import { table } from "./tableInterface"
-import Column from "./column";
-import { column } from "./columnInterface";
+import Column from "./column/column";
+import { column } from "./column/columnInterface";
 import { task } from "./taskInterface";
 
 const table: table = new DefaultTable();

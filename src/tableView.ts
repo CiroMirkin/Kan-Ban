@@ -1,4 +1,4 @@
-import { column } from "./columnInterface";
+import { column } from "./column/columnInterface";
 import { colorPalette } from "./colorPalette";
 import { tableView } from "./tableViewInterface"
 
