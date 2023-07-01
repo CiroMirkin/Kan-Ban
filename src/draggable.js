@@ -1,6 +1,7 @@
 export function loadDragAndDropLibraryFunctions() {
     const containers = document.querySelectorAll('.column')
     const droppable = new Draggable.Droppable(containers, {
+        delay: 200,
         draggable: '.task',
         droppable: '.column__taskList'
     });

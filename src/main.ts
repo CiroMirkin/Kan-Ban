@@ -41,6 +41,7 @@ tableElement.addEventListener('click', (e: MouseEvent) => {
     const optionName = getOption<OptionNamesOfDefaultTasks>(e);
     const taskId = getTaskIdFromTaskElement(e);
     doActionOfTheOption<OptionNamesOfDefaultTasks>(optionName, taskId);
+    showTable(getTable());
   }
 })
 const isTask = (e: MouseEvent): boolean => {
@@ -68,7 +69,8 @@ const editIt = (taskId: string): any => {
   console.log('edit', taskId)
 }
 const deleteIt = (taskId: string): any => {
-  console.log('delete', taskId)
+  const table = getTable();
+  table.columns[0].deleteTask(taskId);
 }
 const archiveIt = (taskId: string): any => {
   console.log('archive', taskId)
