@@ -11,28 +11,7 @@
     <div id="tableContainer"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.2/lib/draggable.min.js"></script>
-    <script type="text/javascript">
-      function loadDragAndDropLibraryFunctions() {
-        const containers = document.querySelectorAll('.column')
-        const droppable = new Draggable.Droppable(containers, {
-          draggable: '.task',
-          droppable: '.column__taskList'
-        });
-        droppable.on('drag:start', () => console.log('drag:start'));
-        droppable.on('droppable:over', () => console.log('droppable:over'));
-        droppable.on('droppable:out', () => console.log('droppable:out'));
-      }
-      const tableContainer = document.getElementById('tableContainer');
-      const observer = new MutationObserver((mutationsList, observer) => {
-        loadDragAndDropLibraryFunctions();
-      });
-      const observerOptions = {
-        childList: true, 
-        subtree: false,
-        characterData: false 
-      };
-     observer.observe(tableContainer, observerOptions);
-    </script>
+    <script type="module" src="./src/draggable.js"></script>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
