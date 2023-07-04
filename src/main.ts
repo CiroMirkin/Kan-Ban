@@ -86,7 +86,6 @@ const movePrev = (taskId: string, columnId: string): any => {
   console.log('archive', taskId, columnId)
 }
 const moveNext = (taskId: string, columnId: string): any => {
-  console.log('moveNext', taskId, columnId)
   const table = getTable();
   table.moveThisTaskInThisColumn(taskId, columnId);
 }
