@@ -25,9 +25,8 @@ export interface newTask {
   task: task
 }
 
-export const addNewTaskToTheFirstColumn = (newTask: newTask) => {
-  const columnId: number = Number(newTask.columnId);
-  const column: column = newTask.table.columns[columnId];
-  column.addNewTask(newTask.task);
+export const addNewTaskToTheFirstColumn = ({ table, columnId, task }: newTask) => {
+  const column: column = table.getColumn(columnId);
+  column.addNewTask(task);
 };
 

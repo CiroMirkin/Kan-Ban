@@ -5,11 +5,16 @@ import DefautTableView from "./tableView";
 
 export default class DefaultTable implements table {
       name: string;
-      columns: Array<column> = [];
+      columns: Array<column>;
       tableView: tableView;
       constructor(){
             this.name = 'default'
             this.tableView = new DefautTableView()
+            this.columns = [];
+      }
+      getColumn(columnId: string): column {
+            const column = this.columns.filter(column => column.getColumnInformation().id == columnId)[0]
+            return column
       }
       addNewColumn(newColumn: column): any {
             this.columns.push(newColumn)

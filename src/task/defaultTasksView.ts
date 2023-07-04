@@ -22,15 +22,15 @@ export default class DefaultTaskView implements taskView {
 
             return task
       }
-      getOptionsTaskElement(taskId: string): HTMLElement {
+      getOptionsTaskElement(task: task): HTMLElement {
             const options = document.createElement('FOOTER')
             options.classList.add('task__footer')
             options.innerHTML = `
-                  <div class="task__options" id="${taskId}">
+                  <div class="task__options" id="${task.id}" columnId="${task.idOfColumnWheresTheTask}">
                         <button option="movePrev"></button>
                         <button option="moveNext">-></button>
                   </div>
-                  <div class="task__options" id="${taskId}">
+                  <div class="task__options" id="${task.id}" columnId="${task.idOfColumnWheresTheTask}">
                         <button option="edit">Editar</button>
                         <button option="delete">Eliminar</button>
                   </div>
@@ -46,7 +46,7 @@ export default class DefaultTaskView implements taskView {
             const taskText = document.createElement('P')
             taskText.innerText = task.getTaskInformation().text
             taskText.classList.add('task__text')
-            const taskOptionsElement = this.getOptionsTaskElement(taskId)
+            const taskOptionsElement = this.getOptionsTaskElement(task)
             taskElement.appendChild(taskHeader)
             taskElement.appendChild(taskText)
             taskElement.appendChild(taskOptionsElement)

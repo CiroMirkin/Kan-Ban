@@ -18,7 +18,7 @@ const getNewTask = (input: HTMLTextAreaElement): task => {
   return new Task({
     id: 'task_1',
     text: (input.value).trim(),
-    idOfColumnWheresTheTask: '0'
+    idOfColumnWheresTheTask: '1'
   }); 
 }
 const formElement: HTMLFormElement = document.querySelector<HTMLFormElement>('#addNewTaskForm')!;
@@ -41,7 +41,8 @@ tableElement.addEventListener('click', (e: MouseEvent) => {
   if(isTask(e)) {
     const optionName = getOption<OptionNamesOfDefaultTasks>(e);
     const taskId = getTaskIdFromTaskElement(e);
-    doActionOfTheOption<OptionNamesOfDefaultTasks>(optionName, taskId);
+    const columnId = getIdOfTheColumnWhereIsTheTask(e); 
+    doActionOfTheOption<OptionNamesOfDefaultTasks>(optionName, taskId, columnId);
     showTable(getTable());
   }
 })
@@ -66,23 +67,27 @@ const getTaskIdFromTaskElement = (e: MouseEvent): string => {
   }
   return element;
 }
-const editIt = (taskId: string): any => {
-  console.log('edit', taskId)
+const getIdOfTheColumnWhereIsTheTask = (e: MouseEvent): string => {
+  const target = e.target as HTMLElement;
+  return target.parentElement?.getAttribute('columnId') as string;
+}
+const editIt = (taskId: string, columnId: string): any => {
+  console.log('edit', taskId, columnId)
 };
-const deleteIt = (taskId: string): any => {
+const deleteIt = (taskId: string, columnId: string): any => {
   const table = getTable();
-  table.columns[0].deleteTask(taskId);
+  table.getColumn(columnId).deleteTask(taskId);
 }
-const archiveIt = (taskId: string): any => {
-  console.log('archive', taskId)
+const archiveIt = (taskId: string, columnId: string): any => {
+  console.log('archive', taskId, columnId)
 }
-const movePrev = (taskId: string): any => {
-  console.log('archive', taskId)
+const movePrev = (taskId: string, columnId: string): any => {
+  console.log('archive', taskId, columnId)
 }
-const moveNext = (taskId: string): any => {
-  console.log('archive', taskId)
+const moveNext = (taskId: string, columnId: string): any => {
+  console.log('archive', taskId, columnId)
 }
-function doActionOfTheOption<OptionNames>(nameOfOptionUserWillDo: OptionNames, taskId: string): any {
+function doActionOfTheOption<OptionNames>(nameOfOptionUserWillDo: OptionNames, taskId: string, columnId: string): any {
   const actionsOfAllOptions = {
     movePrev,
     moveNext,
@@ -91,6 +96,6 @@ function doActionOfTheOption<OptionNames>(nameOfOptionUserWillDo: OptionNames, t
     archive: archiveIt
   }
   Object.entries(actionsOfAllOptions).forEach(([option, action]) => {
-    if(option === nameOfOptionUserWillDo) action(taskId);
+    if(option === nameOfOptionUserWillDo) action(taskId, columnId);
   })
 }
