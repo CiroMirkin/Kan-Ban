@@ -86,7 +86,9 @@ const movePrev = (taskId: string, columnId: string): any => {
   console.log('archive', taskId, columnId)
 }
 const moveNext = (taskId: string, columnId: string): any => {
-  console.log('archive', taskId, columnId)
+  console.log('moveNext', taskId, columnId)
+  const table = getTable();
+  table.moveThisTaskInThisColumn(taskId, columnId);
 }
 function doActionOfTheOption<OptionNames>(nameOfOptionUserWillDo: OptionNames, taskId: string, columnId: string): any {
   const actionsOfAllOptions = {

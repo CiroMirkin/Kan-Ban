@@ -18,9 +18,25 @@ export default class DefaultTable implements table {
             const column = this.columns.filter(column => column.getColumnInformation().id == columnId)[0]
             return column
       }
+      getTheNextColumnIdOfThisColumnId(columnId: string): string {
+            let indexOfTheNextColumnId: number = 0;
+            this.orderOfColumns.forEach((id, idIndex) => {
+                  if(id == columnId) {
+                        indexOfTheNextColumnId = idIndex + 1;
+                  }
+            });
+            return this.orderOfColumns[indexOfTheNextColumnId] ?? columnId;
+      }
       addNewColumn(newColumn: column): any {
             this.columns.push(newColumn)
             this.orderOfColumns.push(newColumn.getColumnInformation().id)
+      }
+      moveThisTaskInThisColumn(taskId: string, columnId: string) {
+            const task = this.getColumn(columnId).getTaskForMoveIt(taskId);
+            this.getColumn(columnId).deleteTask(taskId);
+            const nextColumnId = this.getTheNextColumnIdOfThisColumnId(columnId);
+            task.idOfColumnWheresTheTask = nextColumnId;
+            this.getColumn(nextColumnId).addNewTask(task);
       }
       deleteColumn(columnId: string): any {
             this.columns = this.columns.filter((column) => 
