@@ -16,7 +16,7 @@ document.querySelector<HTMLDivElement>('#header')!.innerHTML = `
 
 const getNewTask = (input: HTMLTextAreaElement): task => {
   return new Task({
-    id: '1',
+    id: 'task_1',
     text: (input.value).trim()
   }); 
 }
@@ -67,7 +67,8 @@ const getTaskIdFromTaskElement = (e: MouseEvent): string => {
 }
 const editIt = (taskId: string): any => {
   console.log('edit', taskId)
-}
+};
+
 const deleteIt = (taskId: string): any => {
   const table = getTable();
   table.columns[0].deleteTask(taskId);
