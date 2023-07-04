@@ -19,12 +19,7 @@ export default class DefaultTable implements table {
             return column
       }
       getTheNextColumnIdOfThisColumnId(columnId: string): string {
-            let indexOfTheNextColumnId: number = 0;
-            this.orderOfColumns.forEach((id, idIndex) => {
-                  if(id == columnId) {
-                        indexOfTheNextColumnId = idIndex + 1;
-                  }
-            });
+            let indexOfTheNextColumnId: number = [...this.orderOfColumns].indexOf(columnId) + 1;
             return this.orderOfColumns[indexOfTheNextColumnId] ?? columnId;
       }
       addNewColumn(newColumn: column): any {
