@@ -8,7 +8,8 @@ export interface table {
       orderOfColumns: string[];
       getColumn(columnId: string): column;
       getTheNextColumnIdOfThisColumnId(columnId: string): string;
-      moveThisTaskInThisColumn(taskId: string, columnId: string): any;
+      getThePrevColumnIdOfThisColumnId(columnId: string): string;
+      moveThisTaskInThisColumnToThisColumn(taskId: string, oldColumnId: string, newColumnId: string): any;
       addNewColumn(newColumn: column): any;
       deleteColumn(columnId: string): any;
       show(): any;

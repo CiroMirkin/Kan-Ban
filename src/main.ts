@@ -83,11 +83,14 @@ const archiveIt = (taskId: string, columnId: string): any => {
   console.log('archive', taskId, columnId)
 }
 const movePrev = (taskId: string, columnId: string): any => {
-  console.log('archive', taskId, columnId)
+  const table = getTable();
+  const prevColumnId = table.getThePrevColumnIdOfThisColumnId(columnId)
+  table.moveThisTaskInThisColumnToThisColumn(taskId, columnId, prevColumnId);
 }
 const moveNext = (taskId: string, columnId: string): any => {
   const table = getTable();
-  table.moveThisTaskInThisColumn(taskId, columnId);
+  const nextColumnId = table.getTheNextColumnIdOfThisColumnId(columnId)
+  table.moveThisTaskInThisColumnToThisColumn(taskId, columnId, nextColumnId);
 }
 function doActionOfTheOption<OptionNames>(nameOfOptionUserWillDo: OptionNames, taskId: string, columnId: string): any {
   const actionsOfAllOptions = {
