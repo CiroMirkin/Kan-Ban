@@ -17,7 +17,8 @@ document.querySelector<HTMLDivElement>('#header')!.innerHTML = `
 const getNewTask = (input: HTMLTextAreaElement): task => {
   return new Task({
     id: 'task_1',
-    text: (input.value).trim()
+    text: (input.value).trim(),
+    idOfColumnWheresTheTask: '0'
   }); 
 }
 const formElement: HTMLFormElement = document.querySelector<HTMLFormElement>('#addNewTaskForm')!;
@@ -28,7 +29,7 @@ formElement.addEventListener('submit', (e) => {
   const table = getTable()
   addNewTaskToTheFirstColumn({
     table, 
-    columnId: '0',
+    columnId: newTask.idOfColumnWheresTheTask,
     task: newTask
   });
   inputElement.value = '';

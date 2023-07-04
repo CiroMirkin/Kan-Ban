@@ -2,12 +2,15 @@ import { taskView } from "./taskViewInterface";
 
 export interface taskInformation {
       id: string,
-      text: string
+      text: string,
+      idOfColumnWheresTheTask: string
 }
 export interface task {
       id: string;
       text: string;
       taskView: taskView;
+      idOfColumnWheresTheTask: string;
+      changeColumn(columnId: string): any;
       getTaskInformation(): taskInformation;
       getTaskElementForShowIt(): HTMLElement;
 }

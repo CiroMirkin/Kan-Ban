@@ -9,15 +9,21 @@ export default class Task implements task {
       id: string;
       text: string;
       taskView: taskView
-      constructor(taskInformation: taskInformation) {
-            this.text = taskInformation.text
-            this.id = taskInformation.id
+      idOfColumnWheresTheTask: string;
+      constructor({ text, id, idOfColumnWheresTheTask }: taskInformation) {
+            this.text = text
+            this.id = id
+            this.idOfColumnWheresTheTask = idOfColumnWheresTheTask
             this.taskView = new DefaultTaskView()
+      }
+      changeColumn(columnId: string): any {
+            this.idOfColumnWheresTheTask = columnId;
       }
       getTaskInformation(): taskInformation {
             return {
                   id: this.id,
-                  text: this.text
+                  text: this.text,
+                  idOfColumnWheresTheTask: this.idOfColumnWheresTheTask
             }
       }
       getTaskElementForShowIt(): HTMLElement {
