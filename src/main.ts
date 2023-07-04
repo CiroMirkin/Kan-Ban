@@ -71,6 +71,7 @@ const getIdOfTheColumnWhereIsTheTask = (e: MouseEvent): string => {
   const target = e.target as HTMLElement;
   return target.parentElement?.getAttribute('columnId') as string;
 }
+
 const editIt = (taskId: string, columnId: string): any => {
   console.log('edit', taskId, columnId)
 };
