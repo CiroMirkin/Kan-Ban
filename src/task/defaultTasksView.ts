@@ -27,6 +27,10 @@ export default class DefaultTaskView implements taskView {
             options.classList.add('task__footer')
             options.innerHTML = `
                   <div class="task__options" id="${taskId}">
+                        <button option="movePrev"></button>
+                        <button option="moveNext">-></button>
+                  </div>
+                  <div class="task__options" id="${taskId}">
                         <button option="edit">Editar</button>
                         <button option="delete">Eliminar</button>
                   </div>

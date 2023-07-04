@@ -68,7 +68,6 @@ const getTaskIdFromTaskElement = (e: MouseEvent): string => {
 const editIt = (taskId: string): any => {
   console.log('edit', taskId)
 };
-
 const deleteIt = (taskId: string): any => {
   const table = getTable();
   table.columns[0].deleteTask(taskId);
@@ -76,8 +75,16 @@ const deleteIt = (taskId: string): any => {
 const archiveIt = (taskId: string): any => {
   console.log('archive', taskId)
 }
+const movePrev = (taskId: string): any => {
+  console.log('archive', taskId)
+}
+const moveNext = (taskId: string): any => {
+  console.log('archive', taskId)
+}
 function doActionOfTheOption<OptionNames>(nameOfOptionUserWillDo: OptionNames, taskId: string): any {
   const actionsOfAllOptions = {
+    movePrev,
+    moveNext,
     delete: deleteIt,
     edit: editIt,
     archive: archiveIt
