@@ -19,6 +19,9 @@ export default class Task implements task {
       changeColumn(columnId: string): any {
             this.idOfColumnWheresTheTask = columnId;
       }
+      changeText(newText: string): any {
+            this.text = newText ?? ''
+      }
       getTaskInformation(): taskInformation {
             return {
                   id: this.id,

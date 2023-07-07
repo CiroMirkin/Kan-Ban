@@ -11,6 +11,7 @@ export interface task {
       taskView: taskView;
       idOfColumnWheresTheTask: string;
       changeColumn(columnId: string): any;
+      changeText(newText: string): any;
       getTaskInformation(): taskInformation;
       getTaskElementForShowIt(): HTMLElement;
 }
