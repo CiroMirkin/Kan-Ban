@@ -71,6 +71,20 @@ const getIdOfTheColumnWhereIsTheTask = (e: MouseEvent): string => {
   const target = e.target as HTMLElement;
   return target.parentElement?.getAttribute('columnId') as string;
 }
+function doActionOfTheOption<OptionNames>(nameOfOptionUserWillDo: OptionNames, taskId: string, columnId: string): any {
+  const actionsOfAllOptions = {
+    movePrev,
+    moveNext,
+    delete: deleteIt,
+    edit: editIt,
+    archive: archiveIt
+  }
+  Object.entries(actionsOfAllOptions).forEach(([option, action]) => {
+    if(option === nameOfOptionUserWillDo) action(taskId, columnId);
+  })
+}
+
+/* --- Actions ---- */
 
 const editIt = (taskId: string, columnId: string): any => {
   const editTaskModalContainer = document.getElementById('editTaskModalContainer');
@@ -115,16 +129,4 @@ const moveNext = (taskId: string, columnId: string): any => {
   const table = getTable();
   const nextColumnId = table.getTheNextColumnIdOfThisColumnId(columnId)
   table.moveThisTaskInThisColumnToThisColumn(taskId, columnId, nextColumnId);
-}
-function doActionOfTheOption<OptionNames>(nameOfOptionUserWillDo: OptionNames, taskId: string, columnId: string): any {
-  const actionsOfAllOptions = {
-    movePrev,
-    moveNext,
-    delete: deleteIt,
-    edit: editIt,
-    archive: archiveIt
-  }
-  Object.entries(actionsOfAllOptions).forEach(([option, action]) => {
-    if(option === nameOfOptionUserWillDo) action(taskId, columnId);
-  })
 }
