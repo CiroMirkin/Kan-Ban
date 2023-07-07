@@ -1,7 +1,7 @@
-import DefaultTable from "./table/table"
-import { table } from "./table/tableInterface"
-import Column from "./column/column";
-import { column } from "./column/columnInterface";
+import DefaultTable from "./table"
+import { table } from "./tableInterface"
+import Column from "../column/column";
+import { column } from "../column/columnInterface";
 
 const table: table = new DefaultTable();
 

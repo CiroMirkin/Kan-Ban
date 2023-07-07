@@ -1,4 +1,4 @@
-import { getTable, showTable } from './app';
+import { getTable, showTable } from './table/tableManager';
 import './style.css'
 import Task, { OptionNamesOfDefaultTasks } from './task/defaultTasks';
 import { task } from './task/taskInterface';
