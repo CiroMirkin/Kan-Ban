@@ -23,6 +23,10 @@
 * {margin:0;padding:0;box-sizing:border-box;list-style:none;}
 
 body {
+      display: block;
+      position: relative;
+      width: 100%;
+      height: 100%;
       background-color: var(--secondary-color);
 }
 
@@ -125,6 +129,42 @@ body {
       list-style: none;
       border: var(--border-2);
       border-radius: 5px;
+}
+
+.edit-task-modal-container {
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: grid;
+      place-items: center;
+      width: 100%;
+      height: 100%;
+      background-color: #b13226c6;
+}
+.edit-task-modal-container--hide {
+      z-index: -1;
+}
+.edit-task-modal-container--show {
+      z-index: 1;
+}
+.edit-task-modal {
+      background-color: var(--secondary-color);
+      border: var(--border-2);
+}
+.edit-task-modal .color {
+      width: 100%;
+      height: 1.5rem;
+      background-color: var(--primary-color);
+}
+.edit-task-modal__content {
+      width: 26rem;
+      padding: 1.5rem;
+      display: grid;
+      place-items: left;
+}
+.edit-task-modal button {
+      width: 6.6rem;
+      margin-block: 0.5rem;
 }
 
 /* Tasks */
