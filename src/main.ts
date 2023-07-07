@@ -1,7 +1,9 @@
-import { addNewTaskToTheFirstColumn, getTable, showTable } from './app';
+import { getTable, showTable } from './app';
 import './style.css'
 import Task, { OptionNamesOfDefaultTasks } from './task/defaultTasks';
 import { task } from './task/taskInterface';
+
+showTable(getTable());
 
 document.querySelector<HTMLDivElement>('#header')!.innerHTML = `
   <header class="header">
@@ -26,12 +28,10 @@ formElement.addEventListener('submit', (e) => {
   e.preventDefault();
   const inputElement: HTMLTextAreaElement = document.querySelector<HTMLTextAreaElement>('#newTask')!;
   const newTask = getNewTask(inputElement);
+  const columnId = newTask.idOfColumnWheresTheTask;
   const table = getTable()
-  addNewTaskToTheFirstColumn({
-    table, 
-    columnId: newTask.idOfColumnWheresTheTask,
-    task: newTask
-  });
+  const column = table.getColumn(columnId);
+  column.addNewTask(newTask);
   inputElement.value = '';
   showTable(table);
 });
