@@ -179,16 +179,47 @@ body {
       display: block;
       width: 100%;
       min-height: 3rem;
-      padding-block: 12px;
-      padding-inline: 6px;
+      padding-block: 6px;
+      padding-inline: 12px;
       text-align: left;
-      font-size: 2ch;
+      font-size: 2.3ch;
       overflow-wrap: break-word;
       background-color: var(--secondary-color);
 }
 .task__header {
       width: 100%;
-      height: 1.4rem;
+      height: 1.6rem;
       border-bottom-width: 2px;
       border-bottom-style: solid;
+}
+.task__options {
+      display: block;
+      width: 100%;
+      height: 30px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+}
+.task__options button:first-child {
+      border-right: var(--border-1);
+}
+.task__options:last-child button {
+      border-bottom: none;
+}
+.task__options button {
+      height: 100%;
+      padding-inline: 6px;
+      padding-block: 2px;
+      font-size: 1.8ch;
+      text-align: center;
+      font-weight: 300;
+      border-inline: none;
+      border-block: var(--border-1);
+      background-color: var(--secondary-color);
+      transition: background-color .30s ease;
+}
+.task__options button:hover {
+      background-color: var(--primary-color);
+}
+.task__options--movement {
+      margin-bottom: 14px;
 }
