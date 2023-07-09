@@ -4,15 +4,12 @@ import Column from "../column/column";
 import { column } from "../column/columnInterface";
 
 const table: table = new DefaultTable();
-
-export function getTable () {
+export function getTable (): table {
   return table
 }
+export const showTable = (table: table) => table.show()
 
 const addNewColumn  = (table: table, column: column): any => table.addNewColumn(column);
-
-addNewColumn(table, new Column('Tareas pendientes', '1'));
-addNewColumn(table, new Column('Tareas en proceso', '2'));
-addNewColumn(table, new Column('Tareas Terminadas', '3'));
-
-export const showTable = (table: table) => table.show()
+addNewColumn(getTable(), new Column('Tareas pendientes', '1'));
+addNewColumn(getTable(), new Column('Tareas en proceso', '2'));
+addNewColumn(getTable(), new Column('Tareas Terminadas', '3'));
