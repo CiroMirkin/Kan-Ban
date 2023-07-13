@@ -2,6 +2,7 @@ import { getTable, showTable } from './table/tableManager';
 import './style.css'
 import Task, { OptionNamesOfDefaultTasks } from './task/defaultTasks';
 import { task } from './task/taskInterface';
+import { getGenericId } from './getAnID';
 
 showTable(getTable());
 
@@ -18,7 +19,7 @@ document.querySelector<HTMLDivElement>('#header')!.innerHTML = `
 
 const getNewTask = (input: HTMLTextAreaElement): task => {
   return new Task({
-    id: 'task_1',
+    id: `task_${getGenericId()}`,
     text: (input.value).trim(),
     idOfColumnWheresTheTask: '1'
   }); 
