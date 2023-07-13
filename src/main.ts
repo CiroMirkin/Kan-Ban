@@ -1,4 +1,4 @@
-import { ManagerOfTAbles } from './tableManager';
+import { ManagerOfTAbles } from './managerOfTables';
 import './style.css'
 import Task, { OptionNamesOfDefaultTasks } from './task/defaultTasks';
 import { task } from './task/taskInterface';
