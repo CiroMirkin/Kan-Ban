@@ -6,20 +6,6 @@ import { getGenericId } from './getAnID';
 import Column from './column/column';
 import { table } from './table/tableInterface';
 
-const tableManager = new ManagerOfTAbles();
-
-const column1 = new Column('Tareas pendientes', '1');
-const column2 = new Column('Tareas en proceso', '2');
-const column3 = new Column('Tareas Terminadas', '3');
-const basicTable = tableManager.createATable({
-  tableColumns: [column1, column2, column3],
-  tableName: 'tabla basica'
-})
-
-const getTable = (): table => basicTable.table;
-const showTable = (table: table) => table.show();
-showTable(getTable());
-
 document.querySelector<HTMLDivElement>('#header')!.innerHTML = `
   <header class="header">
     <button class="header__grafics-btn">Ver metricas</button>
@@ -41,6 +27,22 @@ document.querySelector<HTMLDivElement>('#pageContent')!.innerHTML = `
   </div>
   </div>
 `
+
+const tableManager = new ManagerOfTAbles();
+
+const column1 = new Column('Tareas pendientes', '1');
+const column2 = new Column('Tareas en proceso', '2');
+const column3 = new Column('Tareas Terminadas', '3');
+const basicTable = tableManager.createATable({
+  tableColumns: [column1, column2, column3],
+  tableName: 'tabla basica'
+})
+
+const getTable = (): table => basicTable.table;
+const showTable = (table: table) => table.show();
+showTable(getTable());
+
+/* --- */ 
 
 const getNewTask = (input: HTMLTextAreaElement): task => {
   return new Task({
