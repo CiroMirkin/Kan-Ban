@@ -1,18 +1,8 @@
 import { column } from "../column/columnInterface";
-import { colorPalette } from "../colorPalette";
 import { tableView } from "./tableViewInterface"
 
 export default class DefautTableView implements tableView {
-      colorPalette: colorPalette;
-      constructor() {
-            this.colorPalette = {
-                  primary: '#B13126',
-                  secondary: 'EDE2C6',
-                  ternary:'#150B0E',
-                  fontColor: '#150B0E',
-                  borderColor: '#150B0E',
-            }
-      }
+      constructor() {}
       getTableElement(): HTMLElement {
             const table = document.createElement('DIV')
             table.classList.add('table')

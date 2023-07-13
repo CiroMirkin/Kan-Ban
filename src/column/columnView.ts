@@ -1,18 +1,8 @@
-import { colorPalette } from "../colorPalette";
 import { columnView, informationForShowTheColumn } from "./columnViewInterface";
 import { task } from "../task/taskInterface";
 
 export default class ColumnView implements columnView {
-      colorPalette: colorPalette;
-      constructor() {
-            this.colorPalette = {
-                  primary: '#B13126',
-                  secondary: 'EDE2C6',
-                  ternary:'#150B0E',
-                  fontColor: '#150B0E',
-                  borderColor: '#150B0E',
-            }
-      }
+      constructor() {}
       getColumnElement(columnId: string, columnName: string): HTMLElement {
             const column:HTMLElement = document.createElement('DIV')
             column.classList.add('column')

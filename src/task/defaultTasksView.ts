@@ -1,25 +1,12 @@
 import { taskView } from "./taskViewInterface";
-import { colorPalette } from "../colorPalette";
 import { task } from "./taskInterface";
 
 export default class DefaultTaskView implements taskView {
-      colorPalette: colorPalette;
-      constructor() {
-            this.colorPalette = {
-                  primary: '#B13126',
-                  secondary: 'EDE2C6',
-                  ternary:'#150B0E',
-                  fontColor: '#150B0E',
-                  borderColor: '#150B0E',
-            }
-      }
+      constructor() {}
       getTaskElement(taskId: string): HTMLElement {
             const task = document.createElement('LI')
             task.setAttribute('id', taskId)
             task.classList.add('task')
-            
-            task.style.borderColor = this.colorPalette.ternary
-
             return task
       }
       getOptionsTaskElement(task: task): HTMLElement {
@@ -42,7 +29,6 @@ export default class DefaultTaskView implements taskView {
             const taskElement = this.getTaskElement(taskId)
             const taskHeader = document.createElement('HEADER')
             taskHeader.classList.add('task__header')
-            taskHeader.style.backgroundColor = this.colorPalette.primary
             const taskText = document.createElement('P')
             taskText.innerText = task.getTaskInformation().text
             taskText.classList.add('task__text')
