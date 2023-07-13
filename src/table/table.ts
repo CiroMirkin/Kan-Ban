@@ -20,6 +20,9 @@ export default class DefaultTable implements table {
             const column = this.columns.filter(column => column.getColumnInformation().id == columnId)[0]
             return column
       }
+      getFirstColumnId(): string {
+      return [...this.columns][0].id
+      }
       getTheNextColumnIdOfThisColumnId(columnId: string): string {
             let indexOfTheNextColumnId: number = [...this.orderOfColumns].indexOf(columnId) + 1;
             return this.orderOfColumns[indexOfTheNextColumnId] ?? columnId;

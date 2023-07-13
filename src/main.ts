@@ -35,7 +35,7 @@ const getNewTask = (input: HTMLTextAreaElement): task => {
   return new Task({
     id: `task_${getGenericId()}`,
     text: (input.value).trim(),
-    idOfColumnWheresTheTask: '1'
+    idOfColumnWheresTheTask: getTable().getFirstColumnId()
   }); 
 }
 const formElement: HTMLFormElement = document.querySelector<HTMLFormElement>('#addNewTaskForm')!;

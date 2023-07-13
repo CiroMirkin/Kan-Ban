@@ -7,6 +7,7 @@ export interface table {
       columns: Array<column>;
       tableView: tableView;
       orderOfColumns: string[];
+      getFirstColumnId(): string;
       getColumn(columnId: string): column;
       getTheNextColumnIdOfThisColumnId(columnId: string): string;
       getThePrevColumnIdOfThisColumnId(columnId: string): string;
