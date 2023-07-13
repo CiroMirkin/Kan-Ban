@@ -90,7 +90,7 @@ const editIt = (taskId: string, columnId: string): any => {
   const editTaskModalContainer = document.getElementById('editTaskModalContainer');
   editTaskModalContainer?.classList.replace('edit-task-modal-container--hide', 'edit-task-modal-container--show');
   const textareaElement = document.getElementById('editTaskTextarea') as HTMLTextAreaElement | HTMLInputElement;
-  textareaElement.value = getTable().getColumn(columnId).getTaskForMoveIt(taskId).getTaskInformation().text;
+  textareaElement.value = getTable().getColumn(columnId).getTask(taskId).getTaskInformation().text;
 
   editTaskModalContainer?.addEventListener('click', (e: MouseEvent) => {
     const target = e.target as HTMLElement;
@@ -106,7 +106,7 @@ const editIt = (taskId: string, columnId: string): any => {
   const changeTask = ({ newTaskText, taskId, columnId }: changeTaskInterface) => {
     const table = getTable();
     const column = table.getColumn(columnId);
-    const task = column.getTaskForEditIt(taskId);
+    const task = column.getTask(taskId);
     task.changeText(newTaskText.trim());
     showTable(getTable()); /* no quitar, porque hay un problema de sincronia. 
       La funcion tarda y al terminar las vista de la tabla ya se actualizo, por ende no se muestran los cambios que realizo la funcion.

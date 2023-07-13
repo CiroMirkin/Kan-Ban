@@ -21,12 +21,6 @@ export default class Column implements column {
                   name: this.name
             }
       }
-      getTaskForEditIt(taskId: string): task {
-            const task = this.listOftask.filter((task: task) => 
-                  task.getTaskInformation().id == taskId
-            )[0];
-            return task
-      }
       addNewTask(newTask: task): any {
             this.listOftask.push(newTask)
       }
@@ -35,7 +29,7 @@ export default class Column implements column {
                   task.getTaskInformation().id !== taskId
             )
       }
-      getTaskForMoveIt(taskId: string): task {
+      getTask(taskId: string): task {
             const task = this.listOftask.filter((task: task) => 
                   task.getTaskInformation().id == taskId
             )[0]

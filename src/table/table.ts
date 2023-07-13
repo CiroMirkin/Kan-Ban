@@ -31,7 +31,7 @@ export default class DefaultTable implements table {
             this.orderOfColumns.push(newColumn.getColumnInformation().id)
       }
       moveThisTaskInThisColumnToThisColumn(taskId: string, oldColumnId: string, newColumnId: string): any {
-            const task = this.getColumn(oldColumnId).getTaskForMoveIt(taskId);
+            const task = this.getColumn(oldColumnId).getTask(taskId);
             this.getColumn(oldColumnId).deleteTask(taskId);
             task.idOfColumnWheresTheTask = newColumnId;
             this.getColumn(newColumnId).addNewTask(task);
