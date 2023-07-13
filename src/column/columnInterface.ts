@@ -14,6 +14,7 @@ export interface column {
       getColumnInformation(): columnInformation;
       addNewTask(newTask: task): any;
       deleteTask(taskId: string): any;
+      editTask(taskId: string, newTaskText: string): any;
       getTask(taskId: string): task;
       getColumnElementForShowIt(): HTMLElement;
 }

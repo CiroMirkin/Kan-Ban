@@ -29,6 +29,9 @@ export default class Column implements column {
                   task.getTaskInformation().id !== taskId
             )
       }
+      editTask(taskId: string, newTaskText: string): any {
+            this.getTask(taskId).changeText(newTaskText.trim());
+      }
       getTask(taskId: string): task {
             const task = this.listOftask.filter((task: task) => 
                   task.getTaskInformation().id == taskId

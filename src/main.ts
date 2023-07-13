@@ -105,9 +105,7 @@ const editIt = (taskId: string, columnId: string): any => {
   interface changeTaskInterface { newTaskText: string, taskId: string, columnId: string }
   const changeTask = ({ newTaskText, taskId, columnId }: changeTaskInterface) => {
     const table = getTable();
-    const column = table.getColumn(columnId);
-    const task = column.getTask(taskId);
-    task.changeText(newTaskText.trim());
+    table.getColumn(columnId).editTask(taskId, newTaskText);
     showTable(getTable()); /* no quitar, porque hay un problema de sincronia. 
       La funcion tarda y al terminar las vista de la tabla ya se actualizo, por ende no se muestran los cambios que realizo la funcion.
     */
