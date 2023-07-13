@@ -2,6 +2,7 @@ import { column } from "../column/columnInterface";
 import { tableView } from "./tableViewInterface";
 
 export interface table {
+      id: string
       name: string;
       columns: Array<column>;
       tableView: tableView;

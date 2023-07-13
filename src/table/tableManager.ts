@@ -2,8 +2,10 @@ import DefaultTable from "./table"
 import { table } from "./tableInterface"
 import Column from "../column/column";
 import { column } from "../column/columnInterface";
+import { getGenericId } from "../getAnID";
 
-const table: table = new DefaultTable();
+const tableId = `table_${getGenericId()}`
+const table: table = new DefaultTable(tableId);
 export function getTable (): table {
   return table
 }

@@ -4,11 +4,13 @@ import { tableView } from "./tableViewInterface";
 import DefautTableView from "./tableView";
 
 export default class DefaultTable implements table {
+      id: string;
       name: string;
       columns: Array<column>;
       tableView: tableView;
       orderOfColumns: string[];
-      constructor(){
+      constructor(id: string){
+            this.id = id;
             this.name = 'default'
             this.tableView = new DefautTableView()
             this.columns = [];
