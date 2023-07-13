@@ -1,17 +1,63 @@
 import DefaultTable from "./table/table"
 import { table } from "./table/tableInterface"
-import Column from "./column/column";
 import { column } from "./column/columnInterface";
 import { getGenericId } from "./getAnID";
 
-const tableId = `table_${getGenericId()}`
-const table: table = new DefaultTable(tableId);
-export function getTable (): table {
-  return table
+interface createATableInformation { 
+  tableColumns: column[],
+  tableName: string
 }
-export const showTable = (table: table) => table.show()
+export interface tableInList {
+  table: table,
+  name: string,
+  id: string
+}
+interface managerOfTablesInterface {
+  listOfTables: tableInList[];
+  createATable({ tableColumns, tableName }: createATableInformation): tableInList;
+  getListOfTableNames(): string[];
+  getListOfTableInformation(): tableInListInformation[];
+  getTableById(id: string): table;
+  updateViewOfATable(table: table): any;
+}
+interface tableInListInformation {
+  name: string, 
+  id: string
+}
 
-const addNewColumn  = (table: table, column: column): any => table.addNewColumn(column);
-addNewColumn(getTable(), new Column('Tareas pendientes', '1'));
-addNewColumn(getTable(), new Column('Tareas en proceso', '2'));
-addNewColumn(getTable(), new Column('Tareas Terminadas', '3'));
+export class ManagerOfTAbles implements managerOfTablesInterface {
+  listOfTables: tableInList[];
+  constructor() {
+    this.listOfTables = [];
+  }
+  createATable({ tableColumns, tableName }: createATableInformation): tableInList {
+    const getTableId = () => `table_${getGenericId()}`;
+    const tableId = getTableId();
+    const newTable: table = new DefaultTable(tableId);
+    tableColumns.forEach(column => newTable.addNewColumn(column));
+    const newTableInList: tableInList = {
+      table: newTable,
+      name: tableName,
+      id: tableId
+    }
+    this.listOfTables.push(newTableInList);
+    return newTableInList;
+  }
+  getListOfTableNames(): string[] {
+    return [...this.listOfTables].map(table => table.name);
+  }
+  getListOfTableInformation(): tableInListInformation[] {
+    return [...this.listOfTables].map(table => {
+      return {
+        name: table.name,
+        id: table.id
+      }
+    });
+  }
+  getTableById(id: string): table {
+    return this.listOfTables.filter(table => table.id == id)[0].table;
+  }
+  updateViewOfATable(table: table): any {
+    table.show();
+  }
+}
