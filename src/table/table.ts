@@ -9,9 +9,9 @@ export default class DefaultTable implements table {
       columns: Array<column>;
       tableView: tableView;
       orderOfColumns: string[];
-      constructor(id: string){
+      constructor(id: string, name: string = 'default'){
             this.id = id;
-            this.name = 'default'
+            this.name = name.trim();
             this.tableView = new DefautTableView()
             this.columns = [];
             this.orderOfColumns = [];

@@ -33,7 +33,7 @@ export class ManagerOfTAbles implements managerOfTablesInterface {
   createATable({ tableColumns, tableName }: createATableInformation): tableInList {
     const getTableId = () => `table_${getGenericId()}`;
     const tableId = getTableId();
-    const newTable: table = new DefaultTable(tableId);
+    const newTable: table = new DefaultTable(tableId, tableName);
     tableColumns.forEach(column => newTable.addNewColumn(column));
     const newTableInList: tableInList = {
       table: newTable,
