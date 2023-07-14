@@ -1,4 +1,4 @@
-import { ManagerOfTAbles } from './managerOfTables';
+import { getManagerOfTableInstance, ManagerOfTAbles } from './managerOfTables';
 import './style.css'
 import Task, { OptionNamesOfDefaultTasks } from './task/defaultTasks';
 import { task } from './task/taskInterface';
@@ -28,7 +28,7 @@ document.querySelector<HTMLDivElement>('#pageContent')!.innerHTML = `
   </div>
 `
 
-const tableManager = new ManagerOfTAbles();
+const tableManager = getManagerOfTableInstance();
 
 const column1 = new Column('Tareas pendientes', '1');
 const column2 = new Column('Tareas en proceso', '2');

@@ -61,3 +61,8 @@ export class ManagerOfTAbles implements managerOfTablesInterface {
     table.show();
   }
 }
+
+const managerOfTables = new ManagerOfTAbles()
+export function getManagerOfTableInstance(): managerOfTablesInterface {
+  return managerOfTables
+}
