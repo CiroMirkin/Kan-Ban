@@ -1,22 +1,13 @@
 import { getManagerOfTableInstance } from './managerOfTables';
-import './style.css'
 import Task, { OptionNamesOfDefaultTasks } from './task/defaultTasks';
 import { task } from './task/taskInterface';
 import { getGenericId } from './getAnID';
-import Column from './column/column';
 import { table } from './table/tableInterface';
+import './style.css'
 
 const tableManager = getManagerOfTableInstance();
 
-const column1 = new Column('Tareas pendientes', '1');
-const column2 = new Column('Tareas en proceso', '2');
-const column3 = new Column('Tareas Terminadas', '3');
-const basicTable = tableManager.createATable({
-  tableColumns: [column1, column2, column3],
-  tableName: 'tabla basica'
-})
-
-const getTable = (): table => basicTable.table;
+const getTable = (): table => tableManager.tableInUse;
 const showTable = (table: table) => table.show();
 showTable(getTable());
 

@@ -14,7 +14,9 @@ export interface tableInList {
 }
 interface managerOfTablesInterface {
   listOfTables: tableInList[];
+  tableInUse: table;
   createATable({ tableColumns, tableName }: createATableInformation): tableInList;
+  changeTableInUse(tableId: string): any;
   getListOfTableNames(): string[];
   getListOfTableInformation(): tableInListInformation[];
   getTableById(id: string): table;
@@ -27,8 +29,10 @@ interface tableInListInformation {
 
 export class ManagerOfTAbles implements managerOfTablesInterface {
   listOfTables: tableInList[];
+  tableInUse: table;
   constructor() {
     this.listOfTables = [];
+    this.tableInUse = new DefaultTable('1');
   }
   createATable({ tableColumns, tableName }: createATableInformation): tableInList {
     const getTableId = () => `table_${getGenericId()}`;
@@ -42,6 +46,9 @@ export class ManagerOfTAbles implements managerOfTablesInterface {
     }
     this.listOfTables.push(newTableInList);
     return newTableInList;
+  }
+  changeTableInUse(tableId: string) {
+    this.tableInUse = this.getTableById(tableId);
   }
   getListOfTableNames(): string[] {
     return [...this.listOfTables].map(table => table.name);
