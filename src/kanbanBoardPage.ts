@@ -1,4 +1,4 @@
-import { getManagerOfTableInstance, ManagerOfTAbles } from './managerOfTables';
+import { getManagerOfTableInstance } from './managerOfTables';
 import './style.css'
 import Task, { OptionNamesOfDefaultTasks } from './task/defaultTasks';
 import { task } from './task/taskInterface';
