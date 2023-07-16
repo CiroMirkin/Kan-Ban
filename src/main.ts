@@ -1,6 +1,7 @@
 import { loadKanbanBoardPageContent } from './kanbanBoardPageContent';
 import { getManagerOfTableInstance } from './managerOfTables';
 import Column from './column/column';
+import { loadHomePageContent } from './homePageContent';
 
 const managerOfTable = getManagerOfTableInstance()
 
@@ -15,11 +16,11 @@ const createBasicTable = () => {
   return basicTable
 }
 const basicTable = createBasicTable()
+managerOfTable.changeTableInUse(basicTable.id);
+loadHomePageContent()
 
 async function loadKanbanBoadPage() {
   loadKanbanBoardPageContent();
   await import('./kanbanBoardPage');
 }
-
-managerOfTable.changeTableInUse(basicTable.id);
-loadKanbanBoadPage();
+// loadKanbanBoadPage();
