@@ -189,8 +189,8 @@ body {
 .task__header {
       width: 100%;
       height: 1.6rem;
-      border-bottom-width: 2px;
-      border-bottom-style: solid;
+      background-color: var(--primary-color);
+      border-bottom: 2px solid var(--ternary-color);
 }
 .task__options {
       display: block;
