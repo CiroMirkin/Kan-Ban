@@ -38,17 +38,17 @@ showTableOfList()
 const tableOfListElement = document.querySelector<HTMLDivElement>('#tableList')!;
 tableOfListElement.addEventListener('click', (e) => {
   const target = e.target as HTMLElement;
-  if(target.classList[0] == 'table') {
+  if (target.classList[0] == 'table') {
     const tableId = target.id;
     managerOfTable.changeTableInUse(tableId);
     loadKanbanBoadPage()
-  } 
+  }
   else if (target.parentElement?.classList[0] == 'table') {
-    const tableId = target.parentElement?.id;    
+    const tableId = target.parentElement?.id;
     managerOfTable.changeTableInUse(tableId);
     loadKanbanBoadPage()
   }
-})
+});
 
 async function loadKanbanBoadPage() {
   loadKanbanBoardPageContent();

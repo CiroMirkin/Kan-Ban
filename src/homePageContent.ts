@@ -5,5 +5,6 @@ export function loadHomePageContent() {
       <button class="header__btn">Crear tablero</button>
       </header>
     `;
-    // document.querySelector<HTMLDivElement>('#pageContent')!.innerHTML = ``;
+    document.querySelector<HTMLDivElement>('#pageContent')!.innerHTML = ``;
+    document.querySelector<HTMLDivElement>('#tableContainer')!.innerHTML = ``;
   }
