@@ -1,7 +1,7 @@
 export function loadKanbanBoardPageContent() {
     document.querySelector<HTMLDivElement>('#header')!.innerHTML = `
       <header class="header">
-      <button class="header__grafics-btn">Ver metricas</button>
+      <button class="header__btn">Inicio</button>
       <h1>Kan-Ban</h1>
       <form class="header__add-task" id="addNewTaskForm">
       <textarea name="newTask" id="newTask" placeholder="Nueva tarea..."></textarea>
