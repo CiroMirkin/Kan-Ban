@@ -44,7 +44,7 @@ body {
       text-align: center;
       color: var(--font-color);
 }
-.header__grafics-btn {
+.header__btn {
       width: 8rem;
       height: 44px;
       margin-inline-end: calc((14rem + 46px) - 8rem); /* sums textarea and his button width */
@@ -54,7 +54,7 @@ body {
       border: var(--border-2);
       background-color: var(--secondary-color);
 }
-.header__grafics-btn:hover {
+.header__btn:hover {
       background-color: var(--primary-color);
 }
 .header__add-task {
@@ -222,4 +222,23 @@ body {
 }
 .task__options--movement {
       margin-bottom: 14px;
+}
+
+/* Home styles */
+
+.tableList {
+      list-style: none;
+      width: 90%;
+      background-color: var(--secondary-color);
+}
+.tableList .table {
+      display: block;
+      width: 100%;
+      border: var(--border-2);
+      border-radius: 4px;
+      background-color: var(--secondary-color);
+}
+#pageContent {
+      display: grid;
+      place-items: center;
 }

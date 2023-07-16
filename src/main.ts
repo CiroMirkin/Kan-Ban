@@ -2,6 +2,7 @@ import { loadKanbanBoardPageContent } from './kanbanBoardPageContent';
 import { getManagerOfTableInstance, tableInListInformation } from './managerOfTables';
 import Column from './column/column';
 import { loadHomePageContent } from './homePageContent';
+import './style.css'
 
 const managerOfTable = getManagerOfTableInstance()
 
