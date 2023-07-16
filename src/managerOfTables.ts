@@ -22,7 +22,7 @@ interface managerOfTablesInterface {
   getTableById(id: string): table;
   updateViewOfATable(table: table): any;
 }
-interface tableInListInformation {
+export interface tableInListInformation {
   name: string, 
   id: string
 }
