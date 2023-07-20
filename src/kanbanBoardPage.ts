@@ -1,4 +1,4 @@
-import { getManagerOfTableInstance } from './managerOfTables';
+import { getManagerOfTableInstance } from './managerOfTables/managerOfTables';
 import Task, { OptionNamesOfDefaultTasks } from './task/defaultTasks';
 import { task } from './task/taskInterface';
 import { getGenericId } from './getAnID';

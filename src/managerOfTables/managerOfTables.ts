@@ -1,7 +1,7 @@
-import DefaultTable from "./table/table"
-import { table } from "./table/tableInterface"
-import { column } from "./column/columnInterface";
-import { getGenericId } from "./getAnID";
+import DefaultTable from "../table/table"
+import { table } from "../table/tableInterface"
+import { column } from "../column/columnInterface";
+import { getGenericId } from "../getAnID";
 
 interface createATableInformation { 
   tableColumns: column[],

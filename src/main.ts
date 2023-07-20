@@ -1,5 +1,5 @@
 import { loadKanbanBoardPageContent } from './kanbanBoardPageContent';
-import { getManagerOfTableInstance, tableInListInformation } from './managerOfTables';
+import { getManagerOfTableInstance, tableInListInformation } from './managerOfTables/managerOfTables';
 import Column from './column/column';
 import { loadHomePageContent } from './homePageContent';
 import './style.css'
