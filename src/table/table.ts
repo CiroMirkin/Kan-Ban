@@ -31,10 +31,6 @@ export default class DefaultTable implements table {
             let indexOfTheNextColumnId: number = [...this.orderOfColumns].indexOf(columnId) - 1;
             return this.orderOfColumns[indexOfTheNextColumnId] ?? columnId;
       }
-      addNewColumn(newColumn: column): any {
-            this.columns.push(newColumn)
-            this.orderOfColumns.push(newColumn.getColumnInformation().id)
-      }
       deleteColumn(columnId: string): any {
             this.columns = this.columns.filter((column) => 
                   column.getColumnInformation().id !== columnId

@@ -1,10 +1,10 @@
 import DefaultTable from "../table/table"
 import { table } from "../table/tableInterface"
-import { column } from "../column/columnInterface";
 import { getGenericId } from "../getAnID";
+import AddNewColumnInTable from "../addNewColumnInTable/addNewColumnInTable";
 
 interface createATableInformation { 
-  tableColumns: column[],
+  tableColumns: { title: string, id: string }[],
   tableName: string
 }
 export interface tableInList {
@@ -38,7 +38,8 @@ export class ManagerOfTAbles implements managerOfTablesInterface {
     const getTableId = () => `table_${getGenericId()}`;
     const tableId = getTableId();
     const newTable: table = new DefaultTable(tableId, tableName);
-    tableColumns.forEach(column => newTable.addNewColumn(column));
+    const addNewColumnInTable = new AddNewColumnInTable(newTable);
+    tableColumns.forEach(column => addNewColumnInTable.add(column));
     const newTableInList: tableInList = {
       table: newTable,
       name: tableName,

@@ -10,7 +10,6 @@ export interface table {
       getTheNextColumnIdOfThisColumnId(columnId: string): string;
       getThePrevColumnIdOfThisColumnId(columnId: string): string;
       deleteColumn(columnId: string): any;
-      addNewColumn(newColumn: column): any;
       getFirstColumnId(): string;
       getColumn(columnId: string): column;
       show(): any;

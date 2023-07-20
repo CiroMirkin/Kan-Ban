@@ -5,15 +5,14 @@ import { getGenericId } from './getAnID';
 import { table } from './table/tableInterface';
 import './style.css'
 import TaskMove from './taskMove/taskMove';
-import Column from './column/column';
 import { loadKanbanBoardPageContent } from './kanbanBoardPageContent';
 
 const tableManager = getManagerOfTableInstance();
 
 const createBasicTable = () => {
-  const column1 = new Column('En Espera', '1');
-  const column2 = new Column('En proceso', '2');
-  const column3 = new Column('Terminadas', '3');
+  const column1 = { title: 'En Espera', id: '1' };
+  const column2 = { title: 'En proceso', id: '2' };
+  const column3 = {title: 'Terminadas', id: '3'};
   const basicTable = tableManager.createATable({
     tableColumns: [column1, column2, column3],
     tableName: 'tabla basica'
