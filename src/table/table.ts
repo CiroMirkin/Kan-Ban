@@ -31,11 +31,6 @@ export default class DefaultTable implements table {
             let indexOfTheNextColumnId: number = [...this.orderOfColumns].indexOf(columnId) - 1;
             return this.orderOfColumns[indexOfTheNextColumnId] ?? columnId;
       }
-      deleteColumn(columnId: string): any {
-            this.columns = this.columns.filter((column) => 
-                  column.getColumnInformation().id !== columnId
-            )
-      }
       show(): any {
             this.tableView.showTable([...this.columns])
       }

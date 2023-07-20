@@ -9,7 +9,6 @@ export interface table {
       orderOfColumns: string[];
       getTheNextColumnIdOfThisColumnId(columnId: string): string;
       getThePrevColumnIdOfThisColumnId(columnId: string): string;
-      deleteColumn(columnId: string): any;
       getFirstColumnId(): string;
       getColumn(columnId: string): column;
       show(): any;
