@@ -1,4 +1,4 @@
-import DefaultTable from "../table/table"
+import DefaultTable from "../table/defaultTable"
 import { table } from "../table/tableInterface"
 import { getGenericId } from "../getAnID";
 import AddNewColumnInTable from "../addNewColumnInTable/addNewColumnInTable";
