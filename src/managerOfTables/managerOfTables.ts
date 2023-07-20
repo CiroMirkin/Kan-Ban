@@ -2,9 +2,10 @@ import DefaultTable from "../table/table"
 import { table } from "../table/tableInterface"
 import { getGenericId } from "../getAnID";
 import AddNewColumnInTable from "../addNewColumnInTable/addNewColumnInTable";
+import { columnInformation } from "../column/columnInterface";
 
 interface createATableInformation { 
-  tableColumns: { title: string, id: string }[],
+  tableColumns: columnInformation[],
   tableName: string
 }
 export interface tableInList {

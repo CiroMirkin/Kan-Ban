@@ -1,9 +1,10 @@
 import Column from "../column/column";
+import { columnInformation } from "../column/columnInterface";
 import { table } from "../table/tableInterface";
 
 interface addNewColumnInTableInterface {
     table: table;
-    add({ title, id }: { title: string, id: string }): any;
+    add({ name, id }: columnInformation): any;
 }
 
 export default class AddNewColumnInTable implements addNewColumnInTableInterface {
@@ -11,8 +12,8 @@ export default class AddNewColumnInTable implements addNewColumnInTableInterface
     constructor(table: table) {
         this.table = table;
     }
-    add({ title, id }: { title: string, id: string }): any {
-        const newColumn = new Column(title, id);
+    add({ name, id }: columnInformation): any {
+        const newColumn = new Column(name, id);
         const table = this.table;
         table.columns.push(newColumn)
         table.orderOfColumns.push(newColumn.getColumnInformation().id)

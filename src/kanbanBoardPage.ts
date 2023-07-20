@@ -10,9 +10,9 @@ import { loadKanbanBoardPageContent } from './kanbanBoardPageContent';
 const tableManager = getManagerOfTableInstance();
 
 const createBasicTable = () => {
-  const column1 = { title: 'En Espera', id: '1' };
-  const column2 = { title: 'En proceso', id: '2' };
-  const column3 = {title: 'Terminadas', id: '3'};
+  const column1 = { name: 'En Espera', id: '1' };
+  const column2 = { name: 'En proceso', id: '2' };
+  const column3 = {name: 'Terminadas', id: '3'};
   const basicTable = tableManager.createATable({
     tableColumns: [column1, column2, column3],
     tableName: 'tabla basica'
