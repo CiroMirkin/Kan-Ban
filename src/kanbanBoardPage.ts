@@ -1,11 +1,27 @@
-import { getManagerOfTableInstance } from './managerOfTables';
+import { getManagerOfTableInstance } from './managerOfTables/managerOfTables';
 import Task, { OptionNamesOfDefaultTasks } from './task/defaultTasks';
 import { task } from './task/taskInterface';
 import { getGenericId } from './getAnID';
 import { table } from './table/tableInterface';
 import './style.css'
+import TaskMove from './taskMove/taskMove';
+import { loadKanbanBoardPageContent } from './kanbanBoardPageContent';
 
 const tableManager = getManagerOfTableInstance();
+
+const createBasicTable = () => {
+  const column1 = { name: 'En Espera', id: '1' };
+  const column2 = { name: 'En proceso', id: '2' };
+  const column3 = {name: 'Terminadas', id: '3'};
+  const basicTable = tableManager.createATable({
+    tableColumns: [column1, column2, column3],
+    tableName: 'tabla basica'
+  })
+  return basicTable
+}
+const basicTable = createBasicTable()
+tableManager.changeTableInUse(basicTable.id);
+loadKanbanBoardPageContent()
 
 const getTable = (): table => tableManager.tableInUse;
 const showTable = (table: table) => table.show();
@@ -118,10 +134,12 @@ const archiveIt = (taskId: string, columnId: string): any => {
 const movePrev = (taskId: string, columnId: string): any => {
   const table = getTable();
   const prevColumnId = table.getThePrevColumnIdOfThisColumnId(columnId)
-  table.moveThisTaskInThisColumnToThisColumn(taskId, columnId, prevColumnId);
+  const taskMove = new TaskMove(table);
+  taskMove.moveThisTaskInThisColumnToThisColumn(taskId, columnId, prevColumnId);
 }
 const moveNext = (taskId: string, columnId: string): any => {
   const table = getTable();
   const nextColumnId = table.getTheNextColumnIdOfThisColumnId(columnId)
-  table.moveThisTaskInThisColumnToThisColumn(taskId, columnId, nextColumnId);
+  const taskMove = new TaskMove(table);
+  taskMove.moveThisTaskInThisColumnToThisColumn(taskId, columnId, nextColumnId);
 }
