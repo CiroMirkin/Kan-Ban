@@ -35,12 +35,6 @@ export default class DefaultTable implements table {
             this.columns.push(newColumn)
             this.orderOfColumns.push(newColumn.getColumnInformation().id)
       }
-      moveThisTaskInThisColumnToThisColumn(taskId: string, oldColumnId: string, newColumnId: string): any {
-            const task = this.getColumn(oldColumnId).getTask(taskId);
-            this.getColumn(oldColumnId).deleteTask(taskId);
-            task.idOfColumnWheresTheTask = newColumnId;
-            this.getColumn(newColumnId).addNewTask(task);
-      }
       deleteColumn(columnId: string): any {
             this.columns = this.columns.filter((column) => 
                   column.getColumnInformation().id !== columnId

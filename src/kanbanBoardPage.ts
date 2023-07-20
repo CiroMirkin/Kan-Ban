@@ -4,6 +4,7 @@ import { task } from './task/taskInterface';
 import { getGenericId } from './getAnID';
 import { table } from './table/tableInterface';
 import './style.css'
+import TaskMove from './taskMove/taskMove';
 
 const tableManager = getManagerOfTableInstance();
 
@@ -118,10 +119,12 @@ const archiveIt = (taskId: string, columnId: string): any => {
 const movePrev = (taskId: string, columnId: string): any => {
   const table = getTable();
   const prevColumnId = table.getThePrevColumnIdOfThisColumnId(columnId)
-  table.moveThisTaskInThisColumnToThisColumn(taskId, columnId, prevColumnId);
+  const taskMove = new TaskMove(table);
+  taskMove.moveThisTaskInThisColumnToThisColumn(taskId, columnId, prevColumnId);
 }
 const moveNext = (taskId: string, columnId: string): any => {
   const table = getTable();
   const nextColumnId = table.getTheNextColumnIdOfThisColumnId(columnId)
-  table.moveThisTaskInThisColumnToThisColumn(taskId, columnId, nextColumnId);
+  const taskMove = new TaskMove(table);
+  taskMove.moveThisTaskInThisColumnToThisColumn(taskId, columnId, nextColumnId);
 }
