@@ -1,6 +1,6 @@
 import { task } from "./taskInterface";
 import { taskInformation } from "./taskInterface";
-import DefaultTaskView from "./defaultTasksView";
+import DefaultTaskView from "./taskView";
 import { taskView } from "./taskViewInterface";
 
 export type OptionNamesOfDefaultTasks = 'movePrev' | 'moveNext' | 'delete' | 'edit' | 'archive'

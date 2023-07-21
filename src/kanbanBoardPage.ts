@@ -1,5 +1,5 @@
 import { getManagerOfTableInstance } from './managerOfTables/managerOfTables';
-import Task, { OptionNamesOfDefaultTasks } from './task/defaultTasks';
+import Task, { OptionNamesOfDefaultTasks } from './task/task';
 import { task } from './task/taskInterface';
 import { getGenericId } from './getAnID';
 import { table } from './table/tableInterface';
@@ -9,21 +9,9 @@ import { loadKanbanBoardPageContent } from './kanbanBoardPageContent';
 
 const tableManager = getManagerOfTableInstance();
 
-const createBasicTable = () => {
-  const column1 = { name: 'En Espera', id: '1' };
-  const column2 = { name: 'En proceso', id: '2' };
-  const column3 = {name: 'Terminadas', id: '3'};
-  const basicTable = tableManager.createATable({
-    tableColumns: [column1, column2, column3],
-    tableName: 'tabla basica'
-  })
-  return basicTable
-}
-const basicTable = createBasicTable()
-tableManager.changeTableInUse(basicTable.id);
 loadKanbanBoardPageContent()
 
-const getTable = (): table => tableManager.tableInUse;
+const getTable = (): table => tableManager.getTableInUse();
 const showTable = (table: table) => table.show();
 showTable(getTable());
 

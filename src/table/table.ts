@@ -1,9 +1,9 @@
 import { column } from "../column/columnInterface";
 import { table } from "./tableInterface";
 import { tableView } from "./tableViewInterface";
-import DefautTableView from "./tableView";
+import TableView from "./tableView";
 
-export default class DefaultTable implements table {
+export default class Table implements table {
       id: string;
       name: string;
       columns: Array<column>;
@@ -12,7 +12,7 @@ export default class DefaultTable implements table {
       constructor(id: string, name: string = 'default'){
             this.id = id;
             this.name = name.trim();
-            this.tableView = new DefautTableView()
+            this.tableView = new TableView()
             this.columns = [];
             this.orderOfColumns = [];
       }
