@@ -4,7 +4,7 @@ import { getGenericId } from "../getAnID";
 import AddNewColumnInTable from "../addNewColumnInTable/addNewColumnInTable";
 import { columnInformation } from "../column/columnInterface";
 
-interface createATableInformation { 
+interface informationForCreateATable { 
   tableColumns: columnInformation[],
   tableName: string
 }
@@ -13,41 +13,55 @@ export interface tableInList {
   name: string,
   id: string
 }
-interface managerOfTablesInterface {
-  listOfTables: tableInList[];
-  tableInUse: table;
-  createATable({ tableColumns, tableName }: createATableInformation): tableInList;
-  changeTableInUse(tableId: string): any;
-  getListOfTableNames(): string[];
-  getListOfTableInformation(): tableInListInformation[];
-  getTableById(id: string): table;
-  updateViewOfATable(table: table): any;
-}
 export interface tableInListInformation {
   name: string, 
   id: string
 }
 
-export class ManagerOfTAbles implements managerOfTablesInterface {
-  listOfTables: tableInList[];
-  tableInUse: table;
+class ManagerOfTables {
+  private listOfTables: tableInList[];
+  private tableInUse: table;
+
   constructor() {
     this.listOfTables = [];
-    this.tableInUse = new DefaultTable('1');
+    this.tableInUse = this.#createDefaultTable();
   }
-  createATable({ tableColumns, tableName }: createATableInformation): tableInList {
+
+  #createDefaultTable(): table {
+    const tableColumns = [
+      { name: 'En Espera', id: '1' },
+      { name: 'En proceso', id: '2' },
+      { name: 'Terminadas', id: '3' }
+    ];
+    const [ tableName, tableId ] = ['DEFAULT_TABLE', 'Tabla basica']; 
+    const table = new DefaultTable(tableId, tableName);
+    const addColumnInTable = new AddNewColumnInTable(table);
+    tableColumns.forEach(column => addColumnInTable.add(column));
+    const tableInList: tableInList = {
+      table: table,
+      name: tableName,
+      id: tableId
+    }
+    this.listOfTables.push(tableInList);
+    return table;
+  }
+  newTable({ tableColumns, tableName }: informationForCreateATable): tableInList {
     const getTableId = () => `table_${getGenericId()}`;
-    const tableId = getTableId();
-    const newTable: table = new DefaultTable(tableId, tableName);
+
+    const newTableId = getTableId();
+    const newTable = new DefaultTable(newTableId, tableName);
     const addNewColumnInTable = new AddNewColumnInTable(newTable);
     tableColumns.forEach(column => addNewColumnInTable.add(column));
     const newTableInList: tableInList = {
       table: newTable,
       name: tableName,
-      id: tableId
+      id: newTableId
     }
     this.listOfTables.push(newTableInList);
     return newTableInList;
+  }
+  getTableInUse(): table {
+    return this.tableInUse;
   }
   changeTableInUse(tableId: string) {
     this.tableInUse = this.getTableById(tableId);
@@ -66,12 +80,9 @@ export class ManagerOfTAbles implements managerOfTablesInterface {
   getTableById(id: string): table {
     return this.listOfTables.filter(table => table.id == id)[0].table;
   }
-  updateViewOfATable(table: table): any {
-    table.show();
-  }
 }
 
-const managerOfTables = new ManagerOfTAbles()
-export function getManagerOfTableInstance(): managerOfTablesInterface {
+const managerOfTables = new ManagerOfTables()
+export function getManagerOfTableInstance() {
   return managerOfTables
 }
