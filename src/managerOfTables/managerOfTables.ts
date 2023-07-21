@@ -1,4 +1,4 @@
-import DefaultTable from "../table/defaultTable"
+import Table from "../table/table"
 import { table } from "../table/tableInterface"
 import { getGenericId } from "../getAnID";
 import AddNewColumnInTable from "../addNewColumnInTable/addNewColumnInTable";
@@ -34,7 +34,7 @@ class ManagerOfTables {
       { name: 'Terminadas', id: '3' }
     ];
     const [ tableName, tableId ] = ['DEFAULT_TABLE', 'Tabla basica']; 
-    const table = new DefaultTable(tableId, tableName);
+    const table = new Table(tableId, tableName);
     const addColumnInTable = new AddNewColumnInTable(table);
     tableColumns.forEach(column => addColumnInTable.add(column));
     const tableInList: tableInList = {
@@ -49,7 +49,7 @@ class ManagerOfTables {
     const getTableId = () => `table_${getGenericId()}`;
 
     const newTableId = getTableId();
-    const newTable = new DefaultTable(newTableId, tableName);
+    const newTable = new Table(newTableId, tableName);
     const addNewColumnInTable = new AddNewColumnInTable(newTable);
     tableColumns.forEach(column => addNewColumnInTable.add(column));
     const newTableInList: tableInList = {

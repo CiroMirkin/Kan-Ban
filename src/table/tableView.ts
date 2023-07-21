@@ -1,7 +1,7 @@
 import { column } from "../column/columnInterface";
 import { tableView } from "./tableViewInterface"
 
-export default class DefautTableView implements tableView {
+export default class TableView implements tableView {
       constructor() {}
       getTableElement(): HTMLElement {
             const table = document.createElement('DIV')
