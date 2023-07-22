@@ -1,11 +1,11 @@
 import { table } from "../table/tableInterface"
 
-export interface tableInListInformation {
+export interface InformationOfTables {
   name: string, 
   id: string
 }
 
-class ManagerOfTables {
+class UserTables {
   private listOfTables: table[];
 
   constructor() {
@@ -18,7 +18,7 @@ class ManagerOfTables {
   getListOfTableNames(): string[] {
     return [...this.listOfTables].map(table => table.name);
   }
-  getListOfTableInformation(): tableInListInformation[] {
+  getListOfTablesInformation(): InformationOfTables[] {
     return [...this.listOfTables].map(table => {
       return {
         name: table.name,
@@ -31,7 +31,7 @@ class ManagerOfTables {
   }
 }
 
-const managerOfTables = new ManagerOfTables()
-export function getManagerOfTableInstance() {
-  return managerOfTables
+const userTables = new UserTables()
+export function getUserTablesInstance() {
+  return userTables
 }

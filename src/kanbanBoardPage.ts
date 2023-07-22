@@ -1,4 +1,4 @@
-import { getManagerOfTableInstance } from './managerOfTables/managerOfTables';
+import { getUserTablesInstance } from './userTables/userTables';
 import { NameOfOptionsOnTasks } from './task/task';
 import { table } from './table/tableInterface';
 import './style.css'
@@ -9,11 +9,11 @@ import CreateTable from './createTable/createTable';
 
 new CreateTable().createDefaultTable();
 
-const tableManager = getManagerOfTableInstance();
+const userTables = getUserTablesInstance();
 
 loadKanbanBoardPageContent()
 
-const getTable = (): table => tableManager.getTableById('DEFAULT_TABLE');
+const getTable = (): table => userTables.getTableById('DEFAULT_TABLE');
 const showTable = (table: table) => table.show();
 showTable(getTable());
 

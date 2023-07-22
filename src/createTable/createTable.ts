@@ -1,7 +1,7 @@
 import AddNewColumnInTable from "../addNewColumnInTable/addNewColumnInTable";
 import { columnInformation } from "../column/columnInterface";
 import { getGenericId } from "../getAnID";
-import { getManagerOfTableInstance } from "../managerOfTables/managerOfTables";
+import { getUserTablesInstance } from "../userTables/userTables";
 import Table from "../table/table";
 
 interface informationForCreateATable { 
@@ -14,7 +14,7 @@ type tableId = string;
 export default class CreateTable {
     userTables;
     constructor() {
-        this.userTables = getManagerOfTableInstance();
+        this.userTables = getUserTablesInstance();
     }
     createDefaultTable() {
         const tableColumns = [

@@ -1,12 +1,12 @@
-import { getManagerOfTableInstance, tableInListInformation } from './managerOfTables/managerOfTables';
+import { getUserTablesInstance, InformationOfTables } from './userTables/userTables';
 import { loadHomePageContent } from './homePageContent';
 import './style.css'
 
-const managerOfTable = getManagerOfTableInstance()
+const managerOfTable = getUserTablesInstance()
 
 loadHomePageContent()
 
-const getTableOfListHTMLElement = (tableOfList: tableInListInformation[]): HTMLElement => {
+const getTableOfListHTMLElement = (tableOfList: InformationOfTables[]): HTMLElement => {
   const tableOfListContainer = document.createElement('UL');
   tableOfListContainer.classList.add('tableList');
   tableOfListContainer.setAttribute('id', 'tableList');
@@ -17,7 +17,7 @@ const getTableOfListHTMLElement = (tableOfList: tableInListInformation[]): HTMLE
   return tableOfListContainer;
 }
 const showTableOfList = () => {
-  const tableOfListHTMLElement = getTableOfListHTMLElement(managerOfTable.getListOfTableInformation());
+  const tableOfListHTMLElement = getTableOfListHTMLElement(managerOfTable.getListOfTablesInformation());
   document.querySelector<HTMLDivElement>('#pageContent')!.appendChild(tableOfListHTMLElement);
 }
 showTableOfList()
