@@ -5,12 +5,15 @@ import './style.css'
 import TaskMove from './taskMove/taskMove';
 import { loadKanbanBoardPageContent } from './kanbanBoardPageContent';
 import AddNewTaskInTable from './addNewTaskInTable/addNewTaskInTable';
+import CreateTable from './createTable/createTable';
+
+new CreateTable().createDefaultTable();
 
 const tableManager = getManagerOfTableInstance();
 
 loadKanbanBoardPageContent()
 
-const getTable = (): table => tableManager.getTableInUse();
+const getTable = (): table => tableManager.getTableById('DEFAULT_TABLE');
 const showTable = (table: table) => table.show();
 showTable(getTable());
 
