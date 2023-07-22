@@ -3,7 +3,7 @@ import { taskInformation } from "./taskInterface";
 import DefaultTaskView from "./taskView";
 import { taskView } from "./taskViewInterface";
 
-export type OptionNamesOfDefaultTasks = 'movePrev' | 'moveNext' | 'delete' | 'edit' | 'archive'
+export type NameOfOptionsOnTasks = 'movePrev' | 'moveNext' | 'delete' | 'edit' | 'archive'
 
 export default class Task implements task {
       id: string;

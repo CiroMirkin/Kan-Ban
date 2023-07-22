@@ -1,38 +1,38 @@
-import { getManagerOfTableInstance } from './managerOfTables/managerOfTables';
-import Task, { OptionNamesOfDefaultTasks } from './task/task';
-import { task } from './task/taskInterface';
-import { getGenericId } from './getAnID';
+import { getUserTablesInstance } from './userTables/userTables';
+import { NameOfOptionsOnTasks } from './task/task';
 import { table } from './table/tableInterface';
 import './style.css'
 import TaskMove from './taskMove/taskMove';
 import { loadKanbanBoardPageContent } from './kanbanBoardPageContent';
+import AddNewTaskInTable from './addNewTaskInTable/addNewTaskInTable';
+import CreateTable from './createTable/createTable';
 
-const tableManager = getManagerOfTableInstance();
+new CreateTable().createDefaultTable();
+
+const userTables = getUserTablesInstance();
 
 loadKanbanBoardPageContent()
 
-const getTable = (): table => tableManager.getTableInUse();
+const getTable = (): table => userTables.getTableById('DEFAULT_TABLE');
 const showTable = (table: table) => table.show();
 showTable(getTable());
 
 /* --- */ 
 
-const getNewTask = (input: HTMLTextAreaElement): task => {
-  return new Task({
-    id: `task_${getGenericId()}`,
-    text: (input.value).trim(),
-    idOfColumnWheresTheTask: getTable().getFirstColumnId()
-  }); 
+const getTextOfInputForCreateTask = (input: HTMLTextAreaElement): string => {
+  const text = (input.value).trim(); 
+  if(!text) {
+    throw new Error("Text in task text input is black :(");
+  }
+  return text
 }
 const formElement: HTMLFormElement = document.querySelector<HTMLFormElement>('#addNewTaskForm')!;
 formElement.addEventListener('submit', (e) => {
   e.preventDefault();
+  const table = getTable();
   const inputElement: HTMLTextAreaElement = document.querySelector<HTMLTextAreaElement>('#newTask')!;
-  const newTask = getNewTask(inputElement);
-  const columnId = newTask.idOfColumnWheresTheTask;
-  const table = getTable()
-  const column = table.getColumn(columnId);
-  column.addNewTask(newTask);
+  const newTaskText = getTextOfInputForCreateTask(inputElement);
+  new AddNewTaskInTable(table).add({ text: newTaskText });
   inputElement.value = '';
   showTable(table);
 });
@@ -40,10 +40,10 @@ formElement.addEventListener('submit', (e) => {
 const tableElement: HTMLDivElement = document.querySelector<HTMLDivElement>('#tableContainer')!;
 tableElement.addEventListener('click', (e: MouseEvent) => {
   if(isTask(e)) {
-    const optionName = getOption<OptionNamesOfDefaultTasks>(e);
+    const optionName = getOption<NameOfOptionsOnTasks>(e);
     const taskId = getTaskIdFromTaskElement(e);
     const columnId = getIdOfTheColumnWhereIsTheTask(e); 
-    doActionOfTheOption<OptionNamesOfDefaultTasks>(optionName, taskId, columnId);
+    doActionOfTheOption<NameOfOptionsOnTasks>(optionName, taskId, columnId);
     showTable(getTable());
   }
 })
