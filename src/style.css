@@ -68,7 +68,7 @@ body {
       padding: 7px 0;
       padding-inline-start: 6px;
       text-align: left;
-      font-size: 1.6ch;
+      font-size: 1.8ch;
       border-radius: 0;
       border: var(--border-2);
       border-inline-end: none;
@@ -195,7 +195,6 @@ body {
 .task__options {
       display: block;
       width: 100%;
-      height: 30px;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
 }
@@ -209,9 +208,9 @@ body {
       height: 100%;
       padding-inline: 6px;
       padding-block: 2px;
-      font-size: 1.8ch;
+      font-size: 2ch;
       text-align: center;
-      font-weight: 300;
+      font-weight: 400;
       border-inline: none;
       border-block: var(--border-1);
       background-color: var(--secondary-color);
