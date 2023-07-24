@@ -1,7 +1,7 @@
-import { column } from "../column/columnInterface";
+import { column } from "./columnInterface";
 import { table } from "./tableInterface";
-import { tableView } from "./tableViewInterface";
-import TableView from "./tableView";
+import { tableView } from "../tableView/tableViewInterface";
+import TableView from "../tableView/tableView";
 
 export default class Table implements table {
       id: string;
