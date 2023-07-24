@@ -1,5 +1,5 @@
-import { columnInformation } from "./columnInterface";
-import { task } from "../task/taskInterface";
+import { columnInformation } from "../table/columnInterface";
+import { task } from "../table/taskInterface";
 
 export interface informationForShowTheColumn extends columnInformation {
       listOfTask: Array<task>

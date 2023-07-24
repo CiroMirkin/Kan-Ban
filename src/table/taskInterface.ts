@@ -1,4 +1,4 @@
-import { taskView } from "./taskViewInterface";
+import { taskView } from "../tableView/taskViewInterface";
 
 export interface taskInformation {
       id: string,
