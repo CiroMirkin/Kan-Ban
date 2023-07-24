@@ -1,11 +1,11 @@
 export function loadKanbanBoardPageContent() {
     document.querySelector<HTMLDivElement>('#header')!.innerHTML = `
       <header class="header">
-      <button id="btnForGoToHome" class="header__btn">Inicio</button>
+      <button id="btnForGoToHome" class="header__btn" title="El inicio aun no esta disponible.">Inicio</button>
       <h1>Kan-Ban</h1>
       <form class="header__add-task" id="addNewTaskForm">
       <textarea name="newTask" id="newTask" placeholder="Nueva tarea..."></textarea>
-      <button type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#150B0E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+      <button type="submit" title="Crear tarea."><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#150B0E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
       </form>
       </header>
     `;
