@@ -34,6 +34,18 @@ body {
       background-color: var(--secondary-color);
 }
 
+.footer-in-every-page {
+      display: block;
+      width: 100%;
+      text-align: center;
+}
+.footer-in-every-page a {
+      font-size: 2ch;
+      font-weight: 400;
+      text-decoration: underline;
+      color: var(--font-color);
+}
+
 .header {
       width: 100%;
       padding: 0 2rem;
