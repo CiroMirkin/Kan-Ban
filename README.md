@@ -10,44 +10,13 @@ Lista de caracteristicas **implementadas**:
 * Poder ver las tareas en su correspondiente columna
 * Poder mover las tareas entre columnas 
 
-Lista de caracteristicas a implementar:
+Lista de **posibles** caracteristicas:
 
 * Poder *archivar* las tareas para que apartadas del tablero sin ser eliminadas  
-
-## Arquitectura
-<br/>
-
-### Relación entre clases
-
-Clase *Task* implementa la interfaz *task*.<br/>
-Clase *Task* se compone con la clase *DefaultTaskView*.
-
-Clase *DefaultTaskView* implementa la interfaz *taskView*.<br/>
-Clase *DefaultTaskView* depende de la clase *Task*.
-
-Clase *Column* implementa la interfaz *column*.<br/>
-Clase *Column* se compone con la clase *ColumnView*.<br/>
-Clase *Column* agrega a la clase *Task*. La clase *Task* se almacena en un arreglo.
-
-Clase *ColumnVIew* implemente la interfaz *columnVIew*.<br/>
-Clase *ColumnView* depende de la clase *Column*.
-
-Clase *Table* implementa la interfaz *table*.<br/>
-Clase *Table* se compone con la clase *TableView*.<br/>
-Clase *Table* agrega a la clase *Column*. La clase *Column* se almacena en un arreglo.
-
-Clase *TableView* implementa la interfaz *tableView*.<br/>
-Clase *TableView* depende de la clase *Table*.
-
-El archivo *tableManager.ts* provee una función para acceder a la unica instancia de la clase *Table* que existe.
-
-```typescript
-    const table: table = getTable();
-```
-
-## Diagrama de dependencia entre componentes
-
-[...]
+* Poder ver una lista de los tableros existentes
+* Poder crear tableros
+* Poder crear tableros personalizados
+* Poder eliminar un tablero
 
 ## Diseño de la interfaz grafica
 
