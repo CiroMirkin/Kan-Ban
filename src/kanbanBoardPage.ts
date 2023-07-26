@@ -6,6 +6,9 @@ import TaskMove from './taskMove/taskMove';
 import { loadKanbanBoardPageContent } from './kanbanBoardPageContent';
 import AddNewTaskInTable from './addNewTaskInTable/addNewTaskInTable';
 import CreateTable from './createTable/createTable';
+import { changeStylesIfTheUserIsOnPhoneDevice } from './homePageContent';
+
+changeStylesIfTheUserIsOnPhoneDevice();
 
 new CreateTable().createDefaultTable();
 
