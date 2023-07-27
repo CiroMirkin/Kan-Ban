@@ -1,5 +1,5 @@
-import { columnView } from "../tableView/columnViewInterface";
-import { task } from "./taskInterface";
+import { columnView } from "../columnView/columnViewInterface";
+import { task } from "../task/taskInterface";
 
 export interface columnInformation {
       id: string;
