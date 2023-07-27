@@ -1,7 +1,7 @@
 import { column, columnInformation } from "./columnInterface";
-import { columnView, informationForShowTheColumn } from "../tableView/columnViewInterface";
+import { columnView, informationForShowTheColumn } from "../columnView/columnViewInterface";
 import { task } from "../task/taskInterface";
-import ColumnView from "../tableView/columnView";
+import ColumnView from "../columnView/columnView";
 
 
 export default class Column implements column {
