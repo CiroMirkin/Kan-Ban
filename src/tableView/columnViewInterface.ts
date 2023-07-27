@@ -1,4 +1,4 @@
-import { columnInformation } from "../table/columnInterface";
+import { columnInformation } from "../column/columnInterface";
 import { task } from "../task/taskInterface";
 
 export interface informationForShowTheColumn extends columnInformation {
