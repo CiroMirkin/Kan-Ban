@@ -1,6 +1,6 @@
 import { getGenericId } from "../getAnID";
 import { table } from "../table/tableInterface";
-import Task from "../table/task";
+import Task from "../task/task";
 
 export default class AddNewTaskInTable {
     table: table;

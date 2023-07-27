@@ -1,5 +1,5 @@
 import { getUserTablesInstance } from './userTables/userTables';
-import { NameOfOptionsOnTasks } from './table/task';
+import { NameOfOptionsOnTasks } from './task/task';
 import { table } from './table/tableInterface';
 import './style.css'
 import TaskMove from './taskMove/taskMove';
