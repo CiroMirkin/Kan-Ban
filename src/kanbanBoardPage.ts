@@ -110,11 +110,13 @@ const editIt = (taskId: string, columnId: string): any => {
   
   interface changeTheTextOfTheTaskInterface { newTaskText: string, taskId: string, columnId: string }
   const changeTheTextOfTheTask = ({ newTaskText, taskId, columnId }: changeTheTextOfTheTaskInterface) => {
-    const table = getTable();
-    table.getColumn(columnId).editTask(taskId, newTaskText);
-    showTable(getTable()); /* no quitar, porque hay un problema de sincronia. 
-      La funcion editIt tarda debido al evento y al terminar la vista de la tabla ya se actualizo, por ende no se muestran los cambios que realizo la funcion editIt.
-    */
+    if(!!newTaskText) {
+      const table = getTable();
+      table.getColumn(columnId).editTask(taskId, newTaskText);
+      showTable(getTable()); /* no quitar, porque hay un problema de sincronia. 
+        La funcion editIt tarda debido al evento y al terminar la vista de la tabla ya se actualizo, por ende no se muestran los cambios que realizo la funcion editIt.
+      */
+    }
   }
 };
 const showModalForEditTask = () => {
