@@ -91,17 +91,15 @@ function doActionOfTheOption<OptionNames>(nameOfOptionUserWillDo: OptionNames, t
 /* --- Actions ---- */
 
 const editIt = (taskId: string, columnId: string): any => {
+  showModalForEditTask();
+  putTheTextOfTheTaskInTheInputForEditIt({ columnId, taskId });
   const editTaskModalContainer = document.getElementById('editTaskModalContainer');
-  editTaskModalContainer?.classList.replace('edit-task-modal-container--hide', 'edit-task-modal-container--show');
-  const textareaElement = document.getElementById('editTaskTextarea') as HTMLTextAreaElement | HTMLInputElement;
-  textareaElement.value = getTable().getColumn(columnId).getTask(taskId).getTaskInformation().text;
-
   editTaskModalContainer?.addEventListener('click', (e: MouseEvent) => {
     const target = e.target as HTMLElement;
     if(target.id == 'editTaskSaveBtn') {
       const textareaElement = document.getElementById('editTaskTextarea') as HTMLTextAreaElement | HTMLInputElement;
       const newTaskText = textareaElement?.value ?? '';
-      changeTask({ newTaskText, taskId, columnId });
+      changeTheTextOfTheTask({ newTaskText, taskId, columnId });
       editTaskModalContainer?.classList.replace('edit-task-modal-container--show', 'edit-task-modal-container--hide');
     }
     if(target.id == 'editTaskCloseModalBtn') {
@@ -110,15 +108,23 @@ const editIt = (taskId: string, columnId: string): any => {
     }
   }, false);
   
-  interface changeTaskInterface { newTaskText: string, taskId: string, columnId: string }
-  const changeTask = ({ newTaskText, taskId, columnId }: changeTaskInterface) => {
+  interface changeTheTextOfTheTaskInterface { newTaskText: string, taskId: string, columnId: string }
+  const changeTheTextOfTheTask = ({ newTaskText, taskId, columnId }: changeTheTextOfTheTaskInterface) => {
     const table = getTable();
     table.getColumn(columnId).editTask(taskId, newTaskText);
     showTable(getTable()); /* no quitar, porque hay un problema de sincronia. 
-      La funcion tarda y al terminar las vista de la tabla ya se actualizo, por ende no se muestran los cambios que realizo la funcion.
+      La funcion editIt tarda debido al evento y al terminar la vista de la tabla ya se actualizo, por ende no se muestran los cambios que realizo la funcion editIt.
     */
   }
 };
+const showModalForEditTask = () => {
+  const editTaskModalContainer = document.getElementById('editTaskModalContainer');
+  editTaskModalContainer?.classList.replace('edit-task-modal-container--hide', 'edit-task-modal-container--show');
+}
+const putTheTextOfTheTaskInTheInputForEditIt = ({ columnId, taskId }: { columnId: string, taskId: string }) => {
+  const textareaElement = document.getElementById('editTaskTextarea') as HTMLTextAreaElement | HTMLInputElement;
+  textareaElement.value = getTable().getColumn(columnId).getTask(taskId).getTaskInformation().text;
+}
 const deleteIt = (taskId: string, columnId: string): any => {
   const table = getTable();
   table.getColumn(columnId).deleteTask(taskId);
