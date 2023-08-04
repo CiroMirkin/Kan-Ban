@@ -12,7 +12,7 @@ export function loadKanbanBoardPageContent() {
     document.querySelector<HTMLDivElement>('#pageContent')!.innerHTML = `
       <div id="editTaskModalContainer" class="edit-task-modal-container edit-task-modal-container--hide">
       <div class="edit-task-modal">
-      <div class="color"></div>
+      <div class="color"><span></span><button>X</button></div>
       <div class="edit-task-modal__content">
       <textarea id="editTaskTextarea" cols="30" rows="10" class="edit-task-modal__textarea"></textarea>
       <button id="editTaskSaveBtn">Cambiar</button>
