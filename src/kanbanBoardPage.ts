@@ -104,6 +104,10 @@ const editIt = (taskId: string, columnId: string): any => {
       changeTask({ newTaskText, taskId, columnId });
       editTaskModalContainer?.classList.replace('edit-task-modal-container--show', 'edit-task-modal-container--hide');
     }
+    if(target.id == 'editTaskCloseModalBtn') {
+      const editTaskModalContainer = document.getElementById('editTaskModalContainer');
+      editTaskModalContainer?.classList.replace('edit-task-modal-container--show', 'edit-task-modal-container--hide');
+    }
   }, false);
   
   interface changeTaskInterface { newTaskText: string, taskId: string, columnId: string }
