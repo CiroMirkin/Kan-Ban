@@ -182,9 +182,29 @@ body {
       display: grid;
       place-items: left;
 }
+.edit-task-modal__textarea {
+      padding-block: 6px;
+      padding-inline: 8px;
+      text-align: left;
+      font-size: 1.8ch;
+      color: var(--font-color);
+      border: var(--border-1);
+      border-radius: 0;
+      background-color: var(--secondary-color);
+}
 .edit-task-modal button {
       width: 6.6rem;
       margin-block: 0.5rem;
+      height: 44px;
+      font-size: 2ch;
+      font-weight: 600;
+      border-radius: 0;
+      border: var(--border-2);
+      background-color: var(--secondary-color);
+      transition: background-color .30s ease;
+}
+.edit-task-modal button:hover {
+      background-color: var(--primary-color);
 }
 
 /* Tasks */
