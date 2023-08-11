@@ -3,6 +3,7 @@ import { columnInformation } from "../columnModel/columnInterface";
 import { getGenericId } from "../getAnID";
 import { getUserTablesInstance } from "../userTables/userTables";
 import Table from "../table/table";
+import { defaultTableID, defaultTableName } from "../tableModel/tableConstants";
 
 interface informationForCreateATable { 
     tableColumns: columnInformation[],
@@ -22,7 +23,7 @@ export default class CreateTable {
           { name: 'En proceso', id: '2' },
           { name: 'Terminadas', id: '3' }
         ];
-        const [ tableId, tableName ] = ['DEFAULT_TABLE', 'Tabla basica']; 
+        const [ tableId, tableName ] = [defaultTableID, defaultTableName]; 
         const table = new Table(tableId, tableName);
         const addColumnInTable = new AddNewColumnInTable(table);
         tableColumns.forEach(column => addColumnInTable.add(column));
