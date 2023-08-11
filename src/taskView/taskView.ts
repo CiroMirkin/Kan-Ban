@@ -1,5 +1,5 @@
-import { taskView } from "./taskViewInterface";
-import { task } from "../task/taskInterface";
+import { taskView } from "../taskModel/taskViewInterface";
+import { task } from "../taskModel/taskInterface";
 
 export default class DefaultTaskView implements taskView {
       constructor() {}

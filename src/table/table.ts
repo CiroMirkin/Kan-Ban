@@ -1,6 +1,6 @@
-import { column } from "../column/columnInterface";
-import { table } from "./tableInterface";
-import { tableView } from "../tableView/tableViewInterface";
+import { column } from "../columnModel/columnInterface";
+import { table } from "../tableModel/tableInterface";
+import { tableView } from "../tableModel/tableViewInterface";
 import TableView from "../tableView/tableView";
 
 export default class Table implements table {

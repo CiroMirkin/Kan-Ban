@@ -1,5 +1,5 @@
-import { column } from "../column/columnInterface";
-import { tableView } from "../tableView/tableViewInterface";
+import { column } from "../columnModel/columnInterface";
+import { tableView } from "./tableViewInterface";
 
 export interface table {
       id: string

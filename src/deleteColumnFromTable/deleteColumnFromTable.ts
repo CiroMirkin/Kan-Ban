@@ -1,4 +1,4 @@
-import { table } from "../table/tableInterface";
+import { table } from "../tableModel/tableInterface";
 
 interface deleteColumnFromTable {
     table: table;

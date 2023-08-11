@@ -1,6 +1,6 @@
 import Column from "../column/column";
-import { columnInformation } from "../column/columnInterface";
-import { table } from "../table/tableInterface";
+import { columnInformation } from "../columnModel/columnInterface";
+import { table } from "../tableModel/tableInterface";
 
 interface addNewColumnInTableInterface {
     table: table;
