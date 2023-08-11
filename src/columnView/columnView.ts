@@ -1,5 +1,5 @@
 import { columnView, informationForShowTheColumn } from "../addNewColumnInTable/columnViewInterface";
-import { task } from "../task/taskInterface";
+import { task } from "../addNewTaskInTable/taskInterface";
 
 export default class ColumnView implements columnView {
       constructor() {}
