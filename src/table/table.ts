@@ -1,4 +1,4 @@
-import { column } from "../column/columnInterface";
+import { column } from "../addNewColumnInTable/columnInterface";
 import { table } from "./tableInterface";
 import { tableView } from "../tableView/tableViewInterface";
 import TableView from "../tableView/tableView";

@@ -1,4 +1,4 @@
-import { columnView } from "../columnView/columnViewInterface";
+import { columnView } from "./columnViewInterface";
 import { task } from "../task/taskInterface";
 
 export interface columnInformation {

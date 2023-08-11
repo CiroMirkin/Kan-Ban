@@ -1,4 +1,4 @@
-import { columnInformation } from "../column/columnInterface";
+import { columnInformation } from "./columnInterface";
 import { task } from "../task/taskInterface";
 
 export interface informationForShowTheColumn extends columnInformation {
