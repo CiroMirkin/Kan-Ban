@@ -1,5 +1,5 @@
 import { column } from "../addNewColumnInTable/columnInterface";
-import { tableView } from "../createTable/tableViewInterface"
+import { tableView } from "../tableModel/tableViewInterface"
 
 export default class TableView implements tableView {
       constructor() {}
