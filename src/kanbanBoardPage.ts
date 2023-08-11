@@ -1,7 +1,7 @@
 import './style.css'
 import { getUserTablesInstance } from './userTables/userTables';
 import { NameOfOptionsOnTasks } from './task/task';
-import { table } from './table/tableInterface';
+import { table } from './createTable/tableInterface';
 import TaskMove from './taskMove/taskMove';
 import { loadKanbanBoardPageContent } from './kanbanBoardPageContent';
 import AddNewTaskInTable from './addNewTaskInTable/addNewTaskInTable';

@@ -1,4 +1,4 @@
-import { table } from "../table/tableInterface";
+import { table } from "../createTable/tableInterface";
 
 interface taskMoveInterface {
     table: table;

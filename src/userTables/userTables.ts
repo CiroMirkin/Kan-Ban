@@ -1,4 +1,4 @@
-import { table } from "../table/tableInterface"
+import { table } from "../createTable/tableInterface"
 
 export interface InformationOfTables {
   name: string, 
