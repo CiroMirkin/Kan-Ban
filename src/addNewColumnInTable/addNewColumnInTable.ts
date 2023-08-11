@@ -1,5 +1,5 @@
 import Column from "../column/column";
-import { columnInformation } from "./columnInterface";
+import { columnInformation } from "../columnModel/columnInterface";
 import { table } from "../tableModel/tableInterface";
 
 interface addNewColumnInTableInterface {

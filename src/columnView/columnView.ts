@@ -1,4 +1,4 @@
-import { columnView, informationForShowTheColumn } from "../addNewColumnInTable/columnViewInterface";
+import { columnView, informationForShowTheColumn } from "../columnModel/columnViewInterface";
 import { task } from "../taskModel/taskInterface";
 
 export default class ColumnView implements columnView {

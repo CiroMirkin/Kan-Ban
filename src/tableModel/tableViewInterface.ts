@@ -1,4 +1,4 @@
-import { column } from "../addNewColumnInTable/columnInterface";
+import { column } from "../columnModel/columnInterface";
 
 export interface tableView {
       getTableElement(): HTMLElement;

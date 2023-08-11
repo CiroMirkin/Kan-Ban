@@ -1,5 +1,5 @@
 import AddNewColumnInTable from "../addNewColumnInTable/addNewColumnInTable";
-import { columnInformation } from "../addNewColumnInTable/columnInterface";
+import { columnInformation } from "../columnModel/columnInterface";
 import { getGenericId } from "../getAnID";
 import { getUserTablesInstance } from "../userTables/userTables";
 import Table from "../table/table";

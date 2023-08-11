@@ -1,4 +1,4 @@
-import { column } from "../addNewColumnInTable/columnInterface";
+import { column } from "../columnModel/columnInterface";
 import { tableView } from "../tableModel/tableViewInterface"
 
 export default class TableView implements tableView {

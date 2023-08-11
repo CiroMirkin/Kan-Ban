@@ -1,5 +1,5 @@
-import { column, columnInformation } from "../addNewColumnInTable/columnInterface";
-import { columnView, informationForShowTheColumn } from "../addNewColumnInTable/columnViewInterface";
+import { column, columnInformation } from "../columnModel/columnInterface";
+import { columnView, informationForShowTheColumn } from "../columnModel/columnViewInterface";
 import { task } from "../taskModel/taskInterface";
 import ColumnView from "../columnView/columnView";
 
