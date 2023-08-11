@@ -7,6 +7,7 @@ import { loadKanbanBoardPageContent } from './kanbanBoardPageContent';
 import AddNewTaskInTable from './addNewTaskInTable/addNewTaskInTable';
 import CreateTable from './createTable/createTable';
 import { changeStylesIfTheUserIsOnPhoneDevice } from './homePageContent';
+import { defaultTableID } from './tableModel/tableConstants';
 
 changeStylesIfTheUserIsOnPhoneDevice();
 
@@ -16,7 +17,7 @@ const userTables = getUserTablesInstance();
 
 loadKanbanBoardPageContent()
 
-const getTable = (): table => userTables.getTableById('DEFAULT_TABLE');
+const getTable = (): table => userTables.getTableById(defaultTableID);
 const showTable = (table: table) => table.show();
 showTable(getTable());
 
