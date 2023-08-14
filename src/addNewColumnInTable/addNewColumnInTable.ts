@@ -5,6 +5,7 @@ import { table } from "../tableModel/tableInterface";
 interface addNewColumnInTableInterface {
     table: table;
     addOneColumn({ name, id }: columnInformation): any;
+    addColumns(columns: columnInformation[]): any;
 }
 
 export default class AddNewColumnInTable implements addNewColumnInTableInterface {

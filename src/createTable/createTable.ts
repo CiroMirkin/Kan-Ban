@@ -18,11 +18,6 @@ export default class CreateTable {
         this.userTables = getUserTablesInstance();
     }
     createDefaultTable() {
-        const tableColumns = [
-          { name: 'En Espera', id: '1' },
-          { name: 'En proceso', id: '2' },
-          { name: 'Terminadas', id: '3' }
-        ];
         const [ tableId, tableName ] = [defaultTableID, defaultTableName]; 
         const table = new Table(tableId, tableName);
         this.userTables.addTable(table);

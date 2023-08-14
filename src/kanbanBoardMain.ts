@@ -5,6 +5,7 @@ import { table } from './tableModel/tableInterface';
 import TaskMove from './moveTask/taskMove';
 import AddNewTaskInTable from './addNewTaskInTable/addNewTaskInTable';
 import CreateTable from './createTable/createTable';
+import AddNewColumnInTable from './addNewColumnInTable/addNewColumnInTable';
 import { loadKanbanBoardPageContent } from './kanbanBoardPageContent';
 import { changeStylesIfTheUserIsOnPhoneDevice } from './changeStylesIfTheUserIsOnPhoneDevice';
 import { defaultTableID } from './tableModel/tableConstants';
@@ -14,6 +15,13 @@ changeStylesIfTheUserIsOnPhoneDevice();
 new CreateTable().createDefaultTable();
 
 const userTables = getUserTablesInstance();
+const tableColumns = [
+    { name: 'En Espera', id: '1' },
+    { name: 'En proceso', id: '2' },
+    { name: 'Terminadas', id: '3' }
+  ];
+new AddNewColumnInTable(userTables.getTableById(defaultTableID)).addColumns(tableColumns);
+
 
 loadKanbanBoardPageContent()
 
