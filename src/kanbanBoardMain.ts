@@ -3,10 +3,10 @@ import { getUserTablesInstance } from './userTables/userTables';
 import { NameOfOptionsOnTasks } from './task/task';
 import { table } from './tableModel/tableInterface';
 import TaskMove from './moveTask/taskMove';
-import { loadKanbanBoardPageContent } from './kanbanBoardPageContent';
 import AddNewTaskInTable from './addNewTaskInTable/addNewTaskInTable';
 import CreateTable from './createTable/createTable';
-import { changeStylesIfTheUserIsOnPhoneDevice } from './homePageContent';
+import { loadKanbanBoardPageContent } from './kanbanBoardPageContent';
+import { changeStylesIfTheUserIsOnPhoneDevice } from './changeStylesIfTheUserIsOnPhoneDevice';
 import { defaultTableID } from './tableModel/tableConstants';
 
 changeStylesIfTheUserIsOnPhoneDevice();
