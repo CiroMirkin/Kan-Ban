@@ -18,4 +18,7 @@ export default class AddNewColumnInTable implements addNewColumnInTableInterface
         table.columns.push(newColumn)
         table.orderOfColumns.push(newColumn.getColumnInformation().id)
     }
+    addColumns(columns: columnInformation[]): any {
+        columns.forEach(column => this.addOneColumn(column));
+    }
 }

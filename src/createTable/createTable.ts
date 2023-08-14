@@ -25,8 +25,6 @@ export default class CreateTable {
         ];
         const [ tableId, tableName ] = [defaultTableID, defaultTableName]; 
         const table = new Table(tableId, tableName);
-        const addColumnInTable = new AddNewColumnInTable(table);
-        tableColumns.forEach(column => addColumnInTable.addOneColumn(column));
         this.userTables.addTable(table);
         return table;
       }
