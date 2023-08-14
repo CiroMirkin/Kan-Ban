@@ -33,13 +33,22 @@ const getTextOfInputForCreateTask = (input: HTMLTextAreaElement): string => {
 const formElement: HTMLFormElement = document.querySelector<HTMLFormElement>('#addNewTaskForm')!;
 formElement.addEventListener('submit', (e) => {
   e.preventDefault();
-  const table = getTable();
-  const inputElement: HTMLTextAreaElement = document.querySelector<HTMLTextAreaElement>('#newTask')!;
-  const newTaskText = getTextOfInputForCreateTask(inputElement);
-  new AddNewTaskInTable(table).add({ text: newTaskText });
-  inputElement.value = '';
-  showTable(table);
+  createNewTask();
 });
+formElement.addEventListener('keyup', (e) => {
+    if(e.key === 'Enter') {
+        createNewTask();
+    }
+})
+
+const createNewTask = () => {
+    const table = getTable();
+    const inputElement: HTMLTextAreaElement = document.querySelector<HTMLTextAreaElement>('#newTask')!;
+    const newTaskText = getTextOfInputForCreateTask(inputElement);
+    new AddNewTaskInTable(table).add({ text: newTaskText });
+    inputElement.value = '';
+    showTable(table);
+}
 
 const tableElement: HTMLDivElement = document.querySelector<HTMLDivElement>('#tableContainer')!;
 tableElement.addEventListener('click', (e: MouseEvent) => {
