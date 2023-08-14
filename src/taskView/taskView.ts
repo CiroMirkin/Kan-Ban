@@ -14,8 +14,8 @@ export default class DefaultTaskView implements taskView {
             options.classList.add('task__footer')
             options.innerHTML = `
                   <div class="task__options task__options--movement" id="${task.id}" columnId="${task.idOfColumnWheresTheTask}">
-                        <button option="movePrev"><-</button>
-                        <button option="moveNext">-></button>
+                        <button option="movePrev"><span class="icon icon--arrow-left"></span></button>
+                        <button option="moveNext" style="display:flex;justify-content: right;"><span class="icon icon--arrow-right"></span></button>
                   </div>
                   <div class="task__options" id="${task.id}" columnId="${task.idOfColumnWheresTheTask}">
                         <button option="edit">Editar</button>
