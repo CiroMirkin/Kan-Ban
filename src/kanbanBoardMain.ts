@@ -6,7 +6,6 @@ import TaskMove from './moveTask/taskMove';
 import AddNewTaskInTable from './addNewTaskInTable/addNewTaskInTable';
 import CreateTable from './createTable/createTable';
 import AddNewColumnInTable from './addNewColumnInTable/addNewColumnInTable';
-import { loadKanbanBoardPageContent } from './kanbanBoardPageContent';
 import { changeStylesIfTheUserIsOnPhoneDevice } from './changeStylesIfTheUserIsOnPhoneDevice';
 import { defaultTableID } from './tableModel/tableConstants';
 
@@ -21,9 +20,6 @@ const tableColumns = [
     { name: 'Terminadas', id: '3' }
   ];
 new AddNewColumnInTable(userTables.getTableById(defaultTableID)).addColumns(tableColumns);
-
-
-loadKanbanBoardPageContent()
 
 const getTable = (): table => userTables.getTableById(defaultTableID);
 const showTable = (table: table) => table.show();
@@ -69,21 +65,29 @@ tableElement.addEventListener('click', (e: MouseEvent) => {
   }
 })
 const isTask = (e: MouseEvent): boolean => {
-  const target = e.target as HTMLElement | null;
+  const target = e.target as HTMLElement || null;
   if (!target) {
     return false;
+  }
+  if(target.classList[0] == 'icon') {
+    const containerElement = target.parentElement?.parentElement?.parentElement;
+    return containerElement?.classList.contains('task__footer') || false;
   }
   const containerElement = target.parentElement?.parentElement;
   return containerElement?.classList.contains('task__footer') || false;
 }
 function getOption<OptionNames>(e: MouseEvent): OptionNames {
   const target = e.target as HTMLElement;
+  if(target.classList[0] == 'icon') {
+    const buttonOption = target.parentElement?.getAttribute('option') as OptionNames;
+    return buttonOption;
+  }
   const buttonOption = target.getAttribute('option') as OptionNames;
   return buttonOption;
 }
 const getTaskIdFromTaskElement = (e: MouseEvent): string => {
   const target = e.target as HTMLElement;
-  const element = target.parentElement?.id || 'null';
+  const element = target.parentElement?.id || target.parentElement?.parentElement?.id || 'null';
   if(element == 'null') {
     throw new Error("Task ID undefined or the system can't find it.");
   }
@@ -91,6 +95,9 @@ const getTaskIdFromTaskElement = (e: MouseEvent): string => {
 }
 const getIdOfTheColumnWhereIsTheTask = (e: MouseEvent): string => {
   const target = e.target as HTMLElement;
+  if(target.classList[0] == 'icon') {
+    return target.parentElement?.parentElement?.getAttribute('columnId') as string;
+  }
   return target.parentElement?.getAttribute('columnId') as string;
 }
 function doActionOfTheOption<OptionNames>(nameOfOptionUserWillDo: OptionNames, taskId: string, columnId: string): any {
