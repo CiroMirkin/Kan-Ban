@@ -90,6 +90,9 @@ body {
       color: var(--font-color);
       background-color: var(--secondary-color);
 }
+.header__add-task textarea:focus {
+      outline: solid 2px rgba(176, 50, 38, 0.70);
+}
 .header__add-task textarea::placeholder {
       color: var(--font-color);
 }
