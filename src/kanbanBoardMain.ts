@@ -3,10 +3,11 @@ import { getUserTablesInstance } from './userTables/userTables';
 import { NameOfOptionsOnTasks } from './task/task';
 import { table } from './tableModel/tableInterface';
 import TaskMove from './moveTask/taskMove';
-import { loadKanbanBoardPageContent } from './kanbanBoardPageContent';
 import AddNewTaskInTable from './addNewTaskInTable/addNewTaskInTable';
 import CreateTable from './createTable/createTable';
-import { changeStylesIfTheUserIsOnPhoneDevice } from './homePageContent';
+import AddNewColumnInTable from './addNewColumnInTable/addNewColumnInTable';
+import { loadKanbanBoardPageContent } from './kanbanBoardPageContent';
+import { changeStylesIfTheUserIsOnPhoneDevice } from './changeStylesIfTheUserIsOnPhoneDevice';
 import { defaultTableID } from './tableModel/tableConstants';
 
 changeStylesIfTheUserIsOnPhoneDevice();
@@ -14,6 +15,13 @@ changeStylesIfTheUserIsOnPhoneDevice();
 new CreateTable().createDefaultTable();
 
 const userTables = getUserTablesInstance();
+const tableColumns = [
+    { name: 'En Espera', id: '1' },
+    { name: 'En proceso', id: '2' },
+    { name: 'Terminadas', id: '3' }
+  ];
+new AddNewColumnInTable(userTables.getTableById(defaultTableID)).addColumns(tableColumns);
+
 
 loadKanbanBoardPageContent()
 
@@ -33,13 +41,22 @@ const getTextOfInputForCreateTask = (input: HTMLTextAreaElement): string => {
 const formElement: HTMLFormElement = document.querySelector<HTMLFormElement>('#addNewTaskForm')!;
 formElement.addEventListener('submit', (e) => {
   e.preventDefault();
-  const table = getTable();
-  const inputElement: HTMLTextAreaElement = document.querySelector<HTMLTextAreaElement>('#newTask')!;
-  const newTaskText = getTextOfInputForCreateTask(inputElement);
-  new AddNewTaskInTable(table).add({ text: newTaskText });
-  inputElement.value = '';
-  showTable(table);
+  createNewTask();
 });
+formElement.addEventListener('keyup', (e) => {
+    if(e.key === 'Enter') {
+        createNewTask();
+    }
+})
+
+const createNewTask = () => {
+    const table = getTable();
+    const inputElement: HTMLTextAreaElement = document.querySelector<HTMLTextAreaElement>('#newTask')!;
+    const newTaskText = getTextOfInputForCreateTask(inputElement);
+    new AddNewTaskInTable(table).add({ text: newTaskText });
+    inputElement.value = '';
+    showTable(table);
+}
 
 const tableElement: HTMLDivElement = document.querySelector<HTMLDivElement>('#tableContainer')!;
 tableElement.addEventListener('click', (e: MouseEvent) => {

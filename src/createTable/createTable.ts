@@ -18,15 +18,8 @@ export default class CreateTable {
         this.userTables = getUserTablesInstance();
     }
     createDefaultTable() {
-        const tableColumns = [
-          { name: 'En Espera', id: '1' },
-          { name: 'En proceso', id: '2' },
-          { name: 'Terminadas', id: '3' }
-        ];
         const [ tableId, tableName ] = [defaultTableID, defaultTableName]; 
         const table = new Table(tableId, tableName);
-        const addColumnInTable = new AddNewColumnInTable(table);
-        tableColumns.forEach(column => addColumnInTable.add(column));
         this.userTables.addTable(table);
         return table;
       }
@@ -36,7 +29,7 @@ export default class CreateTable {
         const newTableId = getTableId();
         const newTable = new Table(newTableId, tableName);
         const addNewColumnInTable = new AddNewColumnInTable(newTable);
-        tableColumns.forEach(column => addNewColumnInTable.add(column));
+        tableColumns.forEach(column => addNewColumnInTable.addOneColumn(column));
         this.userTables.addTable(newTable);
         return newTableId;
       }
