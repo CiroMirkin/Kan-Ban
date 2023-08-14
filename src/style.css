@@ -21,7 +21,7 @@
       -webkit-text-size-adjust: 100%;
 }    
 ::selection {
-      background-color: var(--primary-color);
+      background-color: rgba(176, 50, 38, 0.70);
       color: var(--font-color);
 }
 * {margin:0;padding:0;box-sizing:border-box;list-style:none;}
