@@ -6,7 +6,6 @@ import TaskMove from './moveTask/taskMove';
 import AddNewTaskInTable from './addNewTaskInTable/addNewTaskInTable';
 import CreateTable from './createTable/createTable';
 import AddNewColumnInTable from './addNewColumnInTable/addNewColumnInTable';
-import { loadKanbanBoardPageContent } from './kanbanBoardPageContent';
 import { changeStylesIfTheUserIsOnPhoneDevice } from './changeStylesIfTheUserIsOnPhoneDevice';
 import { defaultTableID } from './tableModel/tableConstants';
 
@@ -21,9 +20,6 @@ const tableColumns = [
     { name: 'Terminadas', id: '3' }
   ];
 new AddNewColumnInTable(userTables.getTableById(defaultTableID)).addColumns(tableColumns);
-
-
-loadKanbanBoardPageContent()
 
 const getTable = (): table => userTables.getTableById(defaultTableID);
 const showTable = (table: table) => table.show();
