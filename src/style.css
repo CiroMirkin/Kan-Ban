@@ -236,12 +236,12 @@ body {
 .icon--arrow-left {
       width: 80px;
       height: 20px;
-      background-image: url('./left-arrow.svg');
+      background-image: url('../left-arrow.svg');
 }
 .icon--arrow-right {
       width: 80px;
       height: 20px;
-      background-image: url('./right-arrow.svg');
+      background-image: url('../right-arrow.svg');
 }
 
 .task {
