@@ -8,6 +8,7 @@ import CreateTable from './createTable/createTable';
 import AddNewColumnInTable from './addNewColumnInTable/addNewColumnInTable';
 import { changeStylesIfTheUserIsOnPhoneDevice } from './changeStylesIfTheUserIsOnPhoneDevice';
 import { defaultTableID } from './tableModel/tableConstants';
+import ListOfColumnsView from './listOfColumnsView/listOfColumnsView';
 
 changeStylesIfTheUserIsOnPhoneDevice();
 
@@ -170,4 +171,33 @@ const moveNext = (taskId: string, columnId: string): any => {
   const nextColumnId = table.getTheNextColumnIdOfThisColumnId(columnId)
   const taskMove = new TaskMove(table);
   taskMove.moveThisTaskInThisColumnToThisColumn(taskId, columnId, nextColumnId);
+}
+
+const showEditColumnsModal = () => {
+  const editColumnsModalElementContainer = document.getElementById('editColumnsModalContainer')!;
+  editColumnsModalElementContainer.classList.replace('edit-columns-modal-container--hide', 'edit-columns-modal-container--show');
+}
+const hideEditColumnsModal = () => {
+  const editColumnsModalElementContainer = document.getElementById('editColumnsModalContainer')!;
+  editColumnsModalElementContainer.classList.replace('edit-columns-modal-container--show', 'edit-columns-modal-container--hide');
+}
+const editColumnsHTMLBtn = document.querySelector<HTMLButtonElement>('#editColumnsBtn')!;
+editColumnsHTMLBtn.addEventListener('click', () => {
+  showEditColumnsModal();  
+  showColumns();
+  listenForAction();
+})
+const showColumns = () => {
+  const table = getTable();
+  const columns = table.columns;
+  new ListOfColumnsView(columns).show();
+}
+const listenForAction = () => {
+  const editColumnsModalElementContainer = document.getElementById('editColumnsModalContainer')!;
+  editColumnsModalElementContainer.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
+    if(target.id == 'editColumnsCloseModalBtn') {
+      hideEditColumnsModal()
+    }
+  }, false)
 }
