@@ -192,6 +192,7 @@ const showColumns = () => {
   const columns = table.columns;
   new ListOfColumnsView(columns).show();
 }
+type optionsForEditColum = 'edit' | 'delete';
 const listenForAction = () => {
   const editColumnsModalElementContainer = document.getElementById('editColumnsModalContainer')!;
   editColumnsModalElementContainer.addEventListener('click', (e) => {
@@ -199,5 +200,29 @@ const listenForAction = () => {
     if(target.id == 'editColumnsCloseModalBtn') {
       hideEditColumnsModal()
     }
+    else {
+      const option = target?.getAttribute('option') as optionsForEditColum;
+      const columnId = getColumnId(target);
+      doActionOfthis(option, columnId);
+    }
   }, false)
+}
+const getColumnId = (target: HTMLElement): string  => {
+  console.log("column ", target.innerText)
+  return '1'
+}
+const doActionOfthis = (optionTheUserWillDo: optionsForEditColum, columnId: string) => {
+  const actionsOfAllOptions = {
+    delete: deleteColumn,
+    edit: editColumn,
+  }
+  Object.entries(actionsOfAllOptions).forEach(([option, action]) => {
+    if(option === optionTheUserWillDo) action(columnId);
+  })
+}
+const deleteColumn = (columnId: string) => {
+  console.log('Delete this ', columnId)
+}
+const editColumn = (columnId: string) => {
+  console.log('Edit this ', columnId)
 }
