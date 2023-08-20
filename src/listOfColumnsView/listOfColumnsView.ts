@@ -27,6 +27,7 @@ export default class ListOfColumnsView {
             listOfColumnsFragmentElement.appendChild(columnElement);
         })
         const listOfColumnsHTMLContainer = this.getHTMLContainerElement();
+        listOfColumnsHTMLContainer.innerHTML = '';
         listOfColumnsHTMLContainer.appendChild(listOfColumnsFragmentElement);
     }
 }
