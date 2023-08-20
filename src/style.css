@@ -387,17 +387,3 @@ body {
       margin-bottom: 14px;
 }
 
-/* Home styles */
-
-.tableList {
-      list-style: none;
-      width: 90%;
-      background-color: var(--secondary-color);
-}
-.tableList .table {
-      display: block;
-      width: 100%;
-      border: var(--border-2);
-      border-radius: 4px;
-      background-color: var(--secondary-color);
-}
