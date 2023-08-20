@@ -17,7 +17,13 @@ export default class ListOfColumnsView {
         const columnElement: HTMLElement = document.createElement('LI')
         columnElement.classList.add('columns__column')
         columnElement.setAttribute('id', id)
-        columnElement.innerText = name
+        columnElement.innerHTML = `
+            <p columnName="${name}">${name}</p>
+            <footer id="${id}">
+                <button option="edit">Editar</button>
+                <button option="delete">Eliminar</button>
+            </footer>
+        `;
         return columnElement
     }
     show() {
