@@ -33,12 +33,14 @@ body {
       background-color: var(--secondary-color);
 }
 
-.footer-in-every-page {
-      display: block;
+.footer-page {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 2rem;
       width: 100%;
       text-align: center;
 }
-.footer-in-every-page a {
+.footer-page a {
       font-size: 2ch;
       font-weight: 400;
       text-decoration: underline;
@@ -225,6 +227,93 @@ body {
       background-color: var(--primary-color);
 }
 
+.btn {
+      width: auto;
+      height: auto;
+      padding-block: 4px;
+      padding-inline: 12px;
+      font-size: 1.4ch;
+      font-weight: 600;
+      border-radius: 0;
+      border: var(--border-1);
+      background-color: var(--secondary-color);
+      transition: background-color .30s ease;
+}
+.btn:hover {
+      background-color: var(--primary-color);
+}
+.edit-columns-modal-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: grid;
+      place-items: center;
+      width: 100%;
+      height: 100%;
+      background-color: #b13226c6;
+}
+.edit-columns-modal-container--hide {
+      visibility: hidden;
+      opacity: 0;
+}
+.edit-columns-modal-container--show {
+      visibility: visible;
+      opacity: 1;
+}
+.edit-columns-modal {
+      position: relative;
+      background-color: var(--secondary-color);
+      border: var(--border-2);
+}
+.edit-columns-modal .color {
+      width: 100%;
+      height: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      background-color: var(--primary-color);
+}
+.edit-columns-modal .color button {
+      width: 18px;
+      height: 100%;
+      border: none;
+      cursor: default;
+      transition: background-color .30s ease;
+      background: transparent;
+}
+.edit-columns-modal .color button:hover {
+      background-color: var(--secondary-color);
+}
+.edit-columns-modal__content {
+      width: 26rem;
+      padding: 1.5rem;
+      display: grid;
+      place-items: left;
+}
+.edit-columns-modal__textarea {
+      padding-block: 6px;
+      padding-inline: 8px;
+      text-align: left;
+      font-size: 1.8ch;
+      color: var(--font-color);
+      border: var(--border-1);
+      border-radius: 0;
+      background-color: var(--secondary-color);
+}
+.edit-columns-modal #editColumnsSaveBtn {
+      width: 6.6rem;
+      margin-block: 0.5rem;
+      height: 44px;
+      font-size: 2ch;
+      font-weight: 600;
+      border-radius: 0;
+      border: var(--border-2);
+      background-color: var(--secondary-color);
+      transition: background-color .30s ease;
+}
+.edit-columns-modal button:hover {
+      background-color: var(--primary-color);
+}
+
 /* Tasks */
 
 .icon {
@@ -311,8 +400,4 @@ body {
       border: var(--border-2);
       border-radius: 4px;
       background-color: var(--secondary-color);
-}
-#pageContent {
-      display: grid;
-      place-items: center;
 }

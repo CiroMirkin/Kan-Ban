@@ -15,7 +15,28 @@
         <button type="submit" title="Crear tarea."><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#150B0E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
       </form>
     </header>
-    <div id="tableContainer"></div>
+    <main id="tableContainer"></main>
+    <footer class="footer-page">
+      <a href="https://github.com/CiroMirkin/Kan-Ban">GitHub</a>
+      <button id="editColumnsBtn" class="btn">Editar columnas</button>
+    </footer>
+    <div id="editColumnsModalContainer" class="edit-columns-modal-container edit-columns-modal-container--hide">
+      <div class="edit-columns-modal">
+        <header class="color">
+          <span></span>
+          <button id="editColumnsCloseModalBtn">X</button>
+        </header>
+        <div class="edit-columns-modal__content">
+          <div class="">
+            <form class="add-column" id="addNewColumnForm">
+              <textarea name="newColumn" id="newColumn" placeholder="Nueva columna..."></textarea>
+              <button type="submit" title="Crear tarea."><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#150B0E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+            </form>
+          </div>
+          <ul class="columns" id="columns"></ul>
+        </div>
+      </div>
+    </div>
     <div id="editTaskModalContainer" class="edit-task-modal-container edit-task-modal-container--hide">
       <div class="edit-task-modal">
         <div class="color">
@@ -28,7 +49,6 @@
         </div>
       </div>
     </div>
-    <footer class="footer-in-every-page"><a href="https://github.com/CiroMirkin/Kan-Ban">GitHub</a></footer>
     <script type="module" src="/src/kanbanBoardMain.ts"></script>
   </body>
 </html>
