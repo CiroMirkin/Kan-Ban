@@ -289,15 +289,40 @@ body {
       display: grid;
       place-items: left;
 }
-.edit-columns-modal__textarea {
-      padding-block: 6px;
-      padding-inline: 8px;
+.add-column-form {
+      display: flex;
+      align-items: center;
+}
+.add-column-form textarea {
+      width: 14rem;
+      height: 40px;
+      resize: vertical;
+      padding: 7px 0;
+      padding-inline: 6px;
       text-align: left;
-      font-size: 1.8ch;
-      color: var(--font-color);
-      border: var(--border-1);
+      font-size: 1.6ch;
       border-radius: 0;
+      border: var(--border-1);
+      color: var(--font-color);
       background-color: var(--secondary-color);
+}
+.add-column-form button {
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      border: var(--border-1);
+      border-inline-start: none;
+      border-radius: 0;
+      color: var(--font-color);
+      background-color: var(--secondary-color);
+      transition: background-color .3ms ease;
+}
+.add-column-form button:hover {
+      background-color: var(--primary-color);
+}
+.add-column-form button svg {
+      width: 20px;
 }
 .edit-columns-modal #editColumnsSaveBtn {
       width: 6.6rem;
