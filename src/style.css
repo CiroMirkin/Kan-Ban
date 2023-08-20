@@ -284,7 +284,7 @@ body {
       background-color: var(--secondary-color);
 }
 .edit-columns-modal__content {
-      width: 26rem;
+      min-width: 26rem;
       padding: 1.5rem;
       display: grid;
       place-items: left;
@@ -311,6 +311,51 @@ body {
       transition: background-color .30s ease;
 }
 .edit-columns-modal button:hover {
+      background-color: var(--primary-color);
+}
+
+.columns {
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+}
+.columns__column {
+      margin: 5px;
+      border: var(--border-1);
+      background-color: var(--secondary-color);
+}
+.columns__column p {
+      min-height: 2rem;
+      padding-block: 6px;
+      padding-inline: 12px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 2.2ch;
+}
+.columns__column footer {
+      display: block;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);     
+}
+.columns__column footer button {
+      padding-inline: 6px;
+      padding-block: 2px;
+      font-size: 1.6ch;
+      text-align: center;
+      font-weight: 400;
+      border-inline: none;
+      border-block: var(--border-1);
+      background-color: var(--secondary-color);
+      transition: background-color .3ms ease;
+}
+.columns__column footer button:first-child {
+      border-right: var(--border-1);
+}
+.columns__column footer:last-child button {
+      border-bottom: none;
+}
+.columns__column button:hover {
       background-color: var(--primary-color);
 }
 
