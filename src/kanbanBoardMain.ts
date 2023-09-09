@@ -1,4 +1,5 @@
 import './style.css'
+import { getGenericId } from './getAnID';
 import { getUserTablesInstance } from './userTables/userTables';
 import { NameOfOptionsOnTasks } from './task/task';
 import { table } from './tableModel/tableInterface';
@@ -196,9 +197,22 @@ type optionsForEditColum = 'edit' | 'delete';
 const listenForAction = () => {
   const editColumnsModalElementContainer = document.getElementById('editColumnsModalContainer')!;
   editColumnsModalElementContainer.addEventListener('click', (e) => {
+    e.preventDefault();
     const target = e.target as HTMLElement;
     if(target.id == 'editColumnsCloseModalBtn') {
       hideEditColumnsModal()
+    }
+    const isAddNewColumnBtn = target.id == 'addNewColumnBtn' || target.parentElement?.id == 'addNewColumnBtn';
+    if(isAddNewColumnBtn) {
+      const columnNameInputElement = document.querySelector<HTMLInputElement>('#newColumn')!;
+      const columnName: string = (columnNameInputElement.value).trim();
+      if(!!columnName) {
+        columnNameInputElement.value = '';
+        const table = getTable();
+        new AddNewColumnInTable(table).addOneColumn({ name: columnName, id: getGenericId()});
+        showTable(table);
+        showColumns();
+      }
     }
     else {
       const option = target?.getAttribute('option') as optionsForEditColum;
