@@ -7,6 +7,7 @@ import TaskMove from './moveTask/taskMove';
 import AddNewTaskInTable from './addNewTaskInTable/addNewTaskInTable';
 import CreateTable from './createTable/createTable';
 import AddNewColumnInTable from './addNewColumnInTable/addNewColumnInTable';
+import DeleteColumnFromTable from './deleteColumnFromTable/deleteColumnFromTable';
 import { changeStylesIfTheUserIsOnPhoneDevice } from './changeStylesIfTheUserIsOnPhoneDevice';
 import { defaultTableID } from './tableModel/tableConstants';
 import ListOfColumnsView from './listOfColumnsView/listOfColumnsView';
@@ -222,7 +223,7 @@ const listenForAction = () => {
   }, false)
 }
 const getColumnId = (target: HTMLElement): string  => {
-  console.log("column ", target.innerText)
+  console.log("column id ", target.innerText)
   return '1'
 }
 const doActionOfthis = (optionTheUserWillDo: optionsForEditColum, columnId: string) => {
@@ -235,7 +236,10 @@ const doActionOfthis = (optionTheUserWillDo: optionsForEditColum, columnId: stri
   })
 }
 const deleteColumn = (columnId: string) => {
-  console.log('Delete this ', columnId)
+  const table = getTable();
+  if(table.columns.length > 3) {
+    new DeleteColumnFromTable(table).deleteThisColumn(columnId);
+  }
 }
 const editColumn = (columnId: string) => {
   console.log('Edit this ', columnId)
