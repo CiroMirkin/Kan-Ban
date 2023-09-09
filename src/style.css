@@ -267,6 +267,7 @@ body {
 }
 .edit-columns-modal .color {
       width: 100%;
+      margin: 0;
       height: 1.5rem;
       display: flex;
       justify-content: space-between;
@@ -285,9 +286,21 @@ body {
 }
 .edit-columns-modal__content {
       min-width: 26rem;
-      padding: 1.5rem;
+      padding: 1rem 1.5rem;
       display: grid;
-      place-items: left;
+      place-items: center;
+}
+.edit-columns-modal-container header {
+      width: 100%;
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+}
+.edit-columns-modal-container header p {
+      font-size: 1.6rem;
+      font-weight: 700;
+
 }
 .add-column-form {
       display: flex;
