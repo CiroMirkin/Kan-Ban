@@ -15,5 +15,6 @@ export default class DeleteColumnFromTable implements deleteColumnFromTable {
         table.columns = table.columns.filter((column) => 
               column.getColumnInformation().id !== columnId
         )
+        table.orderOfColumns = table.orderOfColumns.filter(columnID => columnID != columnId) 
   }
 }
