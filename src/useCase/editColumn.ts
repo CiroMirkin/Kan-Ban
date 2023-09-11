@@ -1,3 +1,4 @@
+import Column from "../entity/column/column";
 import { column } from "../entity/columnModel/columnInterface";
 import { table } from "../entity/tableModel/tableInterface";
 
@@ -12,9 +13,11 @@ export default class EditColumn {
     constructor(table: table) {
         this.table = table;
     }
-    edit(oldColumn: column, newColumn: column): any {
+    edit(oldColumnId: string, newColumnName: string): any {
         this.table.columns = this.table.columns.map(column => {
-            if(column.id = oldColumn.id) {
+            if(column.id == oldColumnId) {
+                const newColumn = new Column(newColumnName, column.id);
+                newColumn.listOftask = column.listOftask;
                 return newColumn;
             }
             return column

@@ -7,6 +7,7 @@ import TaskMove from './useCase/taskMove';
 import AddNewTaskInTable from './useCase/addNewTaskInTable';
 import CreateTable from './useCase/createTable';
 import AddNewColumnInTable from './useCase/addNewColumnInTable';
+import EditColumn from './useCase/editColumn';
 import DeleteColumnFromTable from './useCase/deleteColumnFromTable';
 import { changeStylesIfTheUserIsOnPhoneDevice } from './changeStylesIfTheUserIsOnPhoneDevice';
 import { defaultTableID } from './entity/tableModel/tableConstants';
@@ -243,7 +244,29 @@ const deleteColumn = (columnId: string) => {
   }
 }
 const editColumn = (columnId: string) => {
-  const editColumnNameHTMLSection = document.querySelector<HTMLElement>('#edit-column-section')!;
-  editColumnNameHTMLSection.classList.toggle('edit-column-section--hide');
-  
+  showEditColumnNameSection();
+  const editColumnNameForm = document.querySelector<HTMLElement>('#editColumnBtn')!;
+  editColumnNameForm.addEventListener('click', () => {
+    const newColumnName = getNewColumnName(); 
+    if(!!newColumnName) {
+      clearNewColumnNameInput();
+      hideEditColumnNameSection()
+      const table = getTable();
+      new EditColumn(table).edit(columnId, newColumnName);
+    }
+  }, false);
 }
+const showEditColumnNameSection = () => {
+  const section = document.querySelector<HTMLElement>('#edit-column-section')!;
+  section.classList.remove('edit-column-section--hide');
+}
+const hideEditColumnNameSection = () => {
+  const section = document.querySelector<HTMLElement>('#edit-column-section')!;
+  section.classList.add('edit-column-section--hide');
+}
+const getNewColumnName = (): string => {
+  const editColumnInput = document.querySelector<HTMLInputElement>('#editColumnName')!;
+  const newColumnName = editColumnInput.value.trim(); 
+  return newColumnName;
+}
+const clearNewColumnNameInput = () => document.querySelector<HTMLInputElement>('#editColumnName')!.value = '';
