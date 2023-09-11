@@ -221,7 +221,6 @@ const listenForAction = () => {
       doActionOfthis(option, columnId);
       showTable(getTable());
       showColumns();
-      console.table(getTable().columns)
     }
   }, false)
 }
