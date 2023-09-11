@@ -352,6 +352,66 @@ body {
       background-color: var(--primary-color);
 }
 
+.edit-column-section {
+      width: 100%;
+      margin-top: 1rem;
+      padding: 1rem 0 .2rem;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      border-top: var(--border-1);
+}
+.edit-column-section--hide {
+      opacity: 0;
+      visibility: hidden;
+      display: none;
+}
+.edit-column-section--show {
+      opacity: 1;
+      visibility: visible;
+}
+.edit-column-section p {
+      font-size: 1.6rem;
+      font-weight: 700; 
+}
+.edit-column-form {
+      display: flex;
+      align-items: center;
+}
+.edit-column-form textarea {
+      width: 14rem;
+      height: 40px;
+      resize: vertical;
+      padding: 7px 0;
+      padding-inline: 6px;
+      text-align: left;
+      font-size: 1.6ch;
+      border-radius: 0;
+      border: var(--border-1);
+      color: var(--font-color);
+      background-color: var(--secondary-color);
+}
+.edit-column-form button {
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      border: var(--border-1);
+      border-inline-start: none;
+      border-radius: 0;
+      color: var(--font-color);
+      background-color: var(--secondary-color);
+      transition: background-color .3ms ease;
+}
+.edit-column-form button:hover {
+      background-color: var(--primary-color);
+}
+.edit-column-form button svg {
+      width: 20px;
+}
+
 .columns {
       width: 100%;
       display: flex;
