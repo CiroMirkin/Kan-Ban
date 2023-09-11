@@ -1,5 +1,5 @@
-import { column } from "../columnModel/columnInterface";
-import { tableView } from "../tableModel/tableViewInterface"
+import { column } from "../entity/columnModel/columnInterface";
+import { tableView } from "../entity/tableModel/tableViewInterface"
 
 export default class TableView implements tableView {
       constructor() {}

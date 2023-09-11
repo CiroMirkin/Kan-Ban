@@ -33,12 +33,14 @@ body {
       background-color: var(--secondary-color);
 }
 
-.footer-in-every-page {
-      display: block;
+.footer-page {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 2rem;
       width: 100%;
       text-align: center;
 }
-.footer-in-every-page a {
+.footer-page a {
       font-size: 2ch;
       font-weight: 400;
       text-decoration: underline;
@@ -225,6 +227,234 @@ body {
       background-color: var(--primary-color);
 }
 
+.btn {
+      width: auto;
+      height: auto;
+      padding-block: 4px;
+      padding-inline: 12px;
+      font-size: 1.4ch;
+      font-weight: 600;
+      border-radius: 0;
+      border: var(--border-1);
+      background-color: var(--secondary-color);
+      transition: background-color .30s ease;
+}
+.btn:hover {
+      background-color: var(--primary-color);
+}
+.edit-columns-modal-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: grid;
+      place-items: center;
+      width: 100%;
+      height: 100%;
+      background-color: #b13226c6;
+}
+.edit-columns-modal-container--hide {
+      visibility: hidden;
+      opacity: 0;
+}
+.edit-columns-modal-container--show {
+      visibility: visible;
+      opacity: 1;
+}
+.edit-columns-modal {
+      position: relative;
+      background-color: var(--secondary-color);
+      border: var(--border-2);
+}
+.edit-columns-modal .color {
+      width: 100%;
+      margin: 0;
+      height: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      background-color: var(--primary-color);
+}
+.edit-columns-modal .color button {
+      width: 18px;
+      height: 100%;
+      border: none;
+      cursor: default;
+      transition: background-color .30s ease;
+      background: transparent;
+}
+.edit-columns-modal .color button:hover {
+      background-color: var(--secondary-color);
+}
+.edit-columns-modal__content {
+      min-width: 26rem;
+      padding: 1rem 1.5rem;
+      display: grid;
+      place-items: center;
+}
+.edit-columns-modal-container header {
+      width: 100%;
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+}
+.edit-columns-modal-container header p {
+      font-size: 1.6rem;
+      font-weight: 700;
+
+}
+.add-column-form {
+      display: flex;
+      align-items: center;
+}
+.add-column-form textarea {
+      width: 14rem;
+      height: 40px;
+      resize: vertical;
+      padding: 7px 0;
+      padding-inline: 6px;
+      text-align: left;
+      font-size: 1.6ch;
+      border-radius: 0;
+      border: var(--border-1);
+      color: var(--font-color);
+      background-color: var(--secondary-color);
+}
+.add-column-form button {
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      border: var(--border-1);
+      border-inline-start: none;
+      border-radius: 0;
+      color: var(--font-color);
+      background-color: var(--secondary-color);
+      transition: background-color .3ms ease;
+}
+.add-column-form button:hover {
+      background-color: var(--primary-color);
+}
+.add-column-form button svg {
+      width: 20px;
+}
+.edit-columns-modal #editColumnsSaveBtn {
+      width: 6.6rem;
+      margin-block: 0.5rem;
+      height: 44px;
+      font-size: 2ch;
+      font-weight: 600;
+      border-radius: 0;
+      border: var(--border-2);
+      background-color: var(--secondary-color);
+      transition: background-color .30s ease;
+}
+.edit-columns-modal button:hover {
+      background-color: var(--primary-color);
+}
+
+.edit-column-section {
+      width: 100%;
+      margin-top: 1rem;
+      padding: 1rem 0 .2rem;
+      opacity: 1;
+      visibility: visible;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      border-top: var(--border-1);
+}
+.edit-column-section--hide {
+      opacity: 0;
+      visibility: hidden;
+      display: none;
+}
+.edit-column-section p {
+      font-size: 1.6rem;
+      font-weight: 700; 
+}
+.edit-column-form {
+      display: flex;
+      align-items: center;
+}
+.edit-column-form textarea {
+      width: 14rem;
+      height: 40px;
+      resize: vertical;
+      padding: 7px 0;
+      padding-inline: 6px;
+      text-align: left;
+      font-size: 1.6ch;
+      border-radius: 0;
+      border: var(--border-1);
+      color: var(--font-color);
+      background-color: var(--secondary-color);
+}
+.edit-column-form button {
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      border: var(--border-1);
+      border-inline-start: none;
+      border-radius: 0;
+      color: var(--font-color);
+      background-color: var(--secondary-color);
+      transition: background-color .3ms ease;
+}
+.edit-column-form button:hover {
+      background-color: var(--primary-color);
+}
+.edit-column-form button svg {
+      width: 20px;
+}
+
+.columns {
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+}
+.columns__column {
+      margin: 5px;
+      border: var(--border-1);
+      background-color: var(--secondary-color);
+}
+.columns__column p {
+      min-height: 2rem;
+      padding-block: 6px;
+      padding-inline: 12px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 2.2ch;
+}
+.columns__column footer {
+      display: block;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);     
+}
+.columns__column footer button {
+      padding-inline: 6px;
+      padding-block: 2px;
+      font-size: 1.6ch;
+      text-align: center;
+      font-weight: 400;
+      border-inline: none;
+      border-block: var(--border-1);
+      background-color: var(--secondary-color);
+      transition: background-color .3ms ease;
+}
+.columns__column footer button:first-child {
+      border-right: var(--border-1);
+}
+.columns__column footer:last-child button {
+      border-bottom: none;
+}
+.columns__column button:hover {
+      background-color: var(--primary-color);
+}
+
 /* Tasks */
 
 .icon {
@@ -298,21 +528,3 @@ body {
       margin-bottom: 14px;
 }
 
-/* Home styles */
-
-.tableList {
-      list-style: none;
-      width: 90%;
-      background-color: var(--secondary-color);
-}
-.tableList .table {
-      display: block;
-      width: 100%;
-      border: var(--border-2);
-      border-radius: 4px;
-      background-color: var(--secondary-color);
-}
-#pageContent {
-      display: grid;
-      place-items: center;
-}

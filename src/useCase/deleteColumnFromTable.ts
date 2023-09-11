@@ -1,4 +1,4 @@
-import { table } from "../tableModel/tableInterface";
+import { table } from "../entity/tableModel/tableInterface";
 
 interface deleteColumnFromTable {
     table: table;
@@ -15,5 +15,6 @@ export default class DeleteColumnFromTable implements deleteColumnFromTable {
         table.columns = table.columns.filter((column) => 
               column.getColumnInformation().id !== columnId
         )
+        table.orderOfColumns = table.orderOfColumns.filter(columnID => columnID != columnId) 
   }
 }

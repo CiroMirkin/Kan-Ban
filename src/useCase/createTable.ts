@@ -1,9 +1,9 @@
-import AddNewColumnInTable from "../addNewColumnInTable/addNewColumnInTable";
-import { columnInformation } from "../columnModel/columnInterface";
+import AddNewColumnInTable from "./addNewColumnInTable";
+import { columnInformation } from "../entity/columnModel/columnInterface";
 import { getGenericId } from "../getAnID";
-import { getUserTablesInstance } from "../userTables/userTables";
-import Table from "../table/table";
-import { defaultTableID, defaultTableName } from "../tableModel/tableConstants";
+import { getUserTablesInstance } from "../entity/userTables/userTables";
+import Table from "../entity/table/table";
+import { defaultTableID, defaultTableName } from "../entity/tableModel/tableConstants";
 
 interface informationForCreateATable { 
     tableColumns: columnInformation[],

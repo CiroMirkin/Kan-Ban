@@ -1,13 +1,17 @@
 import './style.css'
-import { getUserTablesInstance } from './userTables/userTables';
-import { NameOfOptionsOnTasks } from './task/task';
-import { table } from './tableModel/tableInterface';
-import TaskMove from './moveTask/taskMove';
-import AddNewTaskInTable from './addNewTaskInTable/addNewTaskInTable';
-import CreateTable from './createTable/createTable';
-import AddNewColumnInTable from './addNewColumnInTable/addNewColumnInTable';
+import { getGenericId } from './getAnID';
+import { getUserTablesInstance } from './entity/userTables/userTables';
+import { NameOfOptionsOnTasks } from './entity/task/task';
+import { table } from './entity/tableModel/tableInterface';
+import TaskMove from './useCase/taskMove';
+import AddNewTaskInTable from './useCase/addNewTaskInTable';
+import CreateTable from './useCase/createTable';
+import AddNewColumnInTable from './useCase/addNewColumnInTable';
+import EditColumn from './useCase/editColumn';
+import DeleteColumnFromTable from './useCase/deleteColumnFromTable';
 import { changeStylesIfTheUserIsOnPhoneDevice } from './changeStylesIfTheUserIsOnPhoneDevice';
-import { defaultTableID } from './tableModel/tableConstants';
+import { defaultTableID } from './entity/tableModel/tableConstants';
+import ListOfColumnsView from './view/listOfColumnsView';
 
 changeStylesIfTheUserIsOnPhoneDevice();
 
@@ -171,3 +175,98 @@ const moveNext = (taskId: string, columnId: string): any => {
   const taskMove = new TaskMove(table);
   taskMove.moveThisTaskInThisColumnToThisColumn(taskId, columnId, nextColumnId);
 }
+
+const showEditColumnsModal = () => {
+  const editColumnsModalElementContainer = document.getElementById('editColumnsModalContainer')!;
+  editColumnsModalElementContainer.classList.replace('edit-columns-modal-container--hide', 'edit-columns-modal-container--show');
+}
+const hideEditColumnsModal = () => {
+  const editColumnsModalElementContainer = document.getElementById('editColumnsModalContainer')!;
+  editColumnsModalElementContainer.classList.replace('edit-columns-modal-container--show', 'edit-columns-modal-container--hide');
+}
+const editColumnsHTMLBtn = document.querySelector<HTMLButtonElement>('#editColumnsBtn')!;
+editColumnsHTMLBtn.addEventListener('click', () => {
+  showEditColumnsModal();  
+  showColumns();
+  listenForAction();
+})
+const showColumns = () => {
+  const table = getTable();
+  const columns = table.columns;
+  new ListOfColumnsView(columns).show();
+}
+type optionsForEditColum = 'edit' | 'delete';
+const listenForAction = () => {
+  const editColumnsModalElementContainer = document.getElementById('editColumnsModalContainer')!;
+  editColumnsModalElementContainer.addEventListener('click', (e) => {
+    e.preventDefault();
+    const target = e.target as HTMLElement;
+    if(target.id == 'editColumnsCloseModalBtn') {
+      hideEditColumnsModal()
+    }
+    const isAddNewColumnBtn = target.id == 'addNewColumnBtn' || target.parentElement?.id == 'addNewColumnBtn';
+    if(isAddNewColumnBtn) {
+      const columnNameInputElement = document.querySelector<HTMLInputElement>('#newColumn')!;
+      const columnName: string = (columnNameInputElement.value).trim();
+      if(!!columnName) {
+        columnNameInputElement.value = '';
+        const table = getTable();
+        new AddNewColumnInTable(table).addOneColumn({ name: columnName, id: getGenericId()});
+        showTable(table);
+        showColumns();
+      }
+    }
+    else {
+      const option = target?.getAttribute('option') as optionsForEditColum;
+      const columnId = getColumnId(target);
+      doActionOfthis(option, columnId);
+      showTable(getTable());
+      showColumns();
+    }
+  }, false)
+}
+const getColumnId = (target: HTMLElement): string  => { 
+  return target.parentElement?.id || '';
+}
+const doActionOfthis = (optionTheUserWillDo: optionsForEditColum, columnId: string) => {
+  const actionsOfAllOptions = {
+    delete: deleteColumn,
+    edit: editColumn,
+  }
+  Object.entries(actionsOfAllOptions).forEach(([option, action]) => {
+    if(option === optionTheUserWillDo) action(columnId);
+  })
+}
+const deleteColumn = (columnId: string) => {
+  const table = getTable();
+  if(table.columns.length > 3) {
+    new DeleteColumnFromTable(table).deleteThisColumn(columnId);
+  }
+}
+const editColumn = (columnId: string) => {
+  showEditColumnNameSection();
+  const editColumnNameForm = document.querySelector<HTMLElement>('#editColumnBtn')!;
+  editColumnNameForm.addEventListener('click', () => {
+    const newColumnName = getNewColumnName(); 
+    if(!!newColumnName) {
+      clearNewColumnNameInput();
+      hideEditColumnNameSection()
+      const table = getTable();
+      new EditColumn(table).edit(columnId, newColumnName);
+    }
+  }, false);
+}
+const showEditColumnNameSection = () => {
+  const section = document.querySelector<HTMLElement>('#edit-column-section')!;
+  section.classList.remove('edit-column-section--hide');
+}
+const hideEditColumnNameSection = () => {
+  const section = document.querySelector<HTMLElement>('#edit-column-section')!;
+  section.classList.add('edit-column-section--hide');
+}
+const getNewColumnName = (): string => {
+  const editColumnInput = document.querySelector<HTMLInputElement>('#editColumnName')!;
+  const newColumnName = editColumnInput.value.trim(); 
+  return newColumnName;
+}
+const clearNewColumnNameInput = () => document.querySelector<HTMLInputElement>('#editColumnName')!.value = '';
