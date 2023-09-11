@@ -243,5 +243,7 @@ const deleteColumn = (columnId: string) => {
   }
 }
 const editColumn = (columnId: string) => {
-  console.log('Edit this ', columnId)
+  const editColumnNameHTMLSection = document.querySelector<HTMLElement>('#edit-column-section')!;
+  editColumnNameHTMLSection.classList.toggle('edit-column-section--hide');
+  
 }

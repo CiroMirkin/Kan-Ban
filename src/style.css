@@ -356,6 +356,8 @@ body {
       width: 100%;
       margin-top: 1rem;
       padding: 1rem 0 .2rem;
+      opacity: 1;
+      visibility: visible;
 
       display: flex;
       justify-content: space-between;
@@ -367,10 +369,6 @@ body {
       opacity: 0;
       visibility: hidden;
       display: none;
-}
-.edit-column-section--show {
-      opacity: 1;
-      visibility: visible;
 }
 .edit-column-section p {
       font-size: 1.6rem;
