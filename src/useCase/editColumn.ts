@@ -1,5 +1,5 @@
-import { column } from "../columnModel/columnInterface";
-import { table } from "../tableModel/tableInterface";
+import { column } from "../entity/columnModel/columnInterface";
+import { table } from "../entity/tableModel/tableInterface";
 
 export interface editColumn {
     oldColumn: column;

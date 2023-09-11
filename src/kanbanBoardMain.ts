@@ -1,16 +1,16 @@
 import './style.css'
 import { getGenericId } from './getAnID';
-import { getUserTablesInstance } from './userTables/userTables';
-import { NameOfOptionsOnTasks } from './task/task';
-import { table } from './tableModel/tableInterface';
-import TaskMove from './moveTask/taskMove';
-import AddNewTaskInTable from './addNewTaskInTable/addNewTaskInTable';
-import CreateTable from './createTable/createTable';
-import AddNewColumnInTable from './addNewColumnInTable/addNewColumnInTable';
-import DeleteColumnFromTable from './deleteColumnFromTable/deleteColumnFromTable';
+import { getUserTablesInstance } from './entity/userTables/userTables';
+import { NameOfOptionsOnTasks } from './entity/task/task';
+import { table } from './entity/tableModel/tableInterface';
+import TaskMove from './useCase/taskMove';
+import AddNewTaskInTable from './useCase/addNewTaskInTable';
+import CreateTable from './useCase/createTable';
+import AddNewColumnInTable from './useCase/addNewColumnInTable';
+import DeleteColumnFromTable from './useCase/deleteColumnFromTable';
 import { changeStylesIfTheUserIsOnPhoneDevice } from './changeStylesIfTheUserIsOnPhoneDevice';
-import { defaultTableID } from './tableModel/tableConstants';
-import ListOfColumnsView from './listOfColumnsView/listOfColumnsView';
+import { defaultTableID } from './entity/tableModel/tableConstants';
+import ListOfColumnsView from './view/listOfColumnsView';
 
 changeStylesIfTheUserIsOnPhoneDevice();
 
@@ -219,12 +219,14 @@ const listenForAction = () => {
       const option = target?.getAttribute('option') as optionsForEditColum;
       const columnId = getColumnId(target);
       doActionOfthis(option, columnId);
+      showTable(getTable());
+      showColumns();
+      console.table(getTable().columns)
     }
   }, false)
 }
-const getColumnId = (target: HTMLElement): string  => {
-  console.log("column id ", target.innerText)
-  return '1'
+const getColumnId = (target: HTMLElement): string  => { 
+  return target.parentElement?.id || '';
 }
 const doActionOfthis = (optionTheUserWillDo: optionsForEditColum, columnId: string) => {
   const actionsOfAllOptions = {
