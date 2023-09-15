@@ -212,6 +212,9 @@ body {
       border-radius: 0;
       background-color: var(--secondary-color);
 }
+.edit-task-modal__textarea:focus {
+      outline: solid 2px rgba(176, 50, 38, 0.70);
+}
 .edit-task-modal #editTaskSaveBtn {
       width: 6.6rem;
       margin-block: 0.5rem;
