@@ -1,6 +1,6 @@
-import { column, columnInformation } from "../columnModel/columnInterface";
-import { columnView, informationForShowTheColumn } from "../columnModel/columnViewInterface";
-import { task } from "../taskModel/taskInterface";
+import { column, columnInformation } from "../../model/columnModel/columnInterface";
+import { columnView, informationForShowTheColumn } from "../../model/columnModel/columnViewInterface";
+import { task } from "../../model/taskModel/taskInterface";
 import ColumnView from "../../view/columnView";
 
 

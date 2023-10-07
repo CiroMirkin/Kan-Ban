@@ -2,7 +2,7 @@ import './style.css'
 import { getGenericId } from './getAnID';
 import { getUserTablesInstance } from './entity/userTables/userTables';
 import { NameOfOptionsOnTasks } from './entity/task/task';
-import { table } from './entity/tableModel/tableInterface';
+import { table } from './model/tableModel/tableInterface';
 import TaskMove from './useCase/taskMove';
 import AddNewTaskInTable from './useCase/addNewTaskInTable';
 import CreateTable from './useCase/createTable';
@@ -10,7 +10,7 @@ import AddNewColumnInTable from './useCase/addNewColumnInTable';
 import EditColumn from './useCase/editColumn';
 import DeleteColumnFromTable from './useCase/deleteColumnFromTable';
 import { changeStylesIfTheUserIsOnPhoneDevice } from './changeStylesIfTheUserIsOnPhoneDevice';
-import { defaultTableID } from './entity/tableModel/tableConstants';
+import { defaultTableID } from './model/tableModel/tableConstants';
 import ListOfColumnsView from './view/listOfColumnsView';
 import TableController from './controller/tableController';
 

@@ -1,5 +1,5 @@
-import { column } from "../columnModel/columnInterface";
-import { table } from "../tableModel/tableInterface";
+import { column } from "../../model/columnModel/columnInterface";
+import { table } from "../../model/tableModel/tableInterface";
 
 export default class Table implements table {
       id: string;

@@ -1,5 +1,5 @@
-import { table } from "../entity/tableModel/tableInterface";
-import { tableView } from "../entity/tableModel/tableViewInterface";
+import { table } from "../model/tableModel/tableInterface";
+import { tableView } from "../model/tableModel/tableViewInterface";
 import TableView from "../view/tableView";
 
 export default class TableController {

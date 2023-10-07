@@ -1,4 +1,4 @@
-import { table } from "../entity/tableModel/tableInterface";
+import { table } from "../model/tableModel/tableInterface";
 
 interface taskMoveInterface {
     table: table;

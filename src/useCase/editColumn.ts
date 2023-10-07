@@ -1,6 +1,6 @@
 import Column from "../entity/column/column";
-import { column } from "../entity/columnModel/columnInterface";
-import { table } from "../entity/tableModel/tableInterface";
+import { column } from "../model/columnModel/columnInterface";
+import { table } from "../model/tableModel/tableInterface";
 
 export interface editColumn {
     oldColumn: column;

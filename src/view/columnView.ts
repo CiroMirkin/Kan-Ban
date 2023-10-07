@@ -1,5 +1,5 @@
-import { columnView, informationForShowTheColumn } from "../entity/columnModel/columnViewInterface";
-import { task } from "../entity/taskModel/taskInterface";
+import { columnView, informationForShowTheColumn } from "../model/columnModel/columnViewInterface";
+import { task } from "../model/taskModel/taskInterface";
 
 export default class ColumnView implements columnView {
       constructor() {}
