@@ -1,18 +1,14 @@
 import { column } from "../columnModel/columnInterface";
 import { table } from "../tableModel/tableInterface";
-import { tableView } from "../tableModel/tableViewInterface";
-import TableView from "../../view/tableView";
 
 export default class Table implements table {
       id: string;
       name: string;
       columns: Array<column>;
-      tableView: tableView;
       orderOfColumns: string[];
       constructor(id: string, name: string = 'default'){
             this.id = id;
             this.name = name.trim();
-            this.tableView = new TableView()
             this.columns = [];
             this.orderOfColumns = [];
       }
@@ -30,8 +26,5 @@ export default class Table implements table {
       getThePrevColumnIdOfThisColumnId(columnId: string): string {
             let indexOfTheNextColumnId: number = [...this.orderOfColumns].indexOf(columnId) - 1;
             return this.orderOfColumns[indexOfTheNextColumnId] ?? columnId;
-      }
-      show(): any {
-            this.tableView.showTable([...this.columns])
       }
 }

@@ -12,6 +12,7 @@ import DeleteColumnFromTable from './useCase/deleteColumnFromTable';
 import { changeStylesIfTheUserIsOnPhoneDevice } from './changeStylesIfTheUserIsOnPhoneDevice';
 import { defaultTableID } from './entity/tableModel/tableConstants';
 import ListOfColumnsView from './view/listOfColumnsView';
+import TableController from './controller/tableController';
 
 changeStylesIfTheUserIsOnPhoneDevice();
 
@@ -24,9 +25,8 @@ const tableColumns = [
     { name: 'Terminadas', id: '3' }
   ];
 new AddNewColumnInTable(userTables.getTableById(defaultTableID)).addColumns(tableColumns);
-
 const getTable = (): table => userTables.getTableById(defaultTableID);
-const showTable = (table: table) => table.show();
+const showTable = (table: table) => new TableController(table).show();;
 showTable(getTable());
 
 /* --- */ 
