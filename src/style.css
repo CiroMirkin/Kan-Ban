@@ -433,9 +433,17 @@ body {
       font-size: 2.2ch;
 }
 .columns__column footer {
-      display: block;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+}
+.columns__column footer div {
+      width: 100%;
       display: grid;
-      grid-template-columns: repeat(2, 1fr);     
+      grid-template-columns: 1fr 1fr;
+}
+.columns__column footer div:first-child button {
+      border-bottom: var(--border-1);
 }
 .columns__column footer button {
       padding-inline: 6px;
