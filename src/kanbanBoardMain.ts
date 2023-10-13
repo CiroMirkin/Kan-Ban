@@ -13,6 +13,7 @@ import { changeStylesIfTheUserIsOnPhoneDevice } from './changeStylesIfTheUserIsO
 import { defaultTableID } from './model/tableModel/tableConstants';
 import ListOfColumnsView from './view/listOfColumnsView';
 import TableController from './controller/tableController';
+import MoveColumn from './useCase/moveColumn';
 
 changeStylesIfTheUserIsOnPhoneDevice();
 
@@ -232,6 +233,8 @@ const doActionOfthis = (optionTheUserWillDo: optionsForEditColum, columnId: stri
   const actionsOfAllOptions = {
     delete: deleteColumn,
     edit: editColumn,
+    moveNext: moveColumnOnePlaceToRight,
+    movePrev: moveColumnOnePlaceToLeft,
   }
   Object.entries(actionsOfAllOptions).forEach(([option, action]) => {
     if(option === optionTheUserWillDo) action(columnId);
@@ -270,3 +273,6 @@ const getNewColumnName = (): string => {
   return newColumnName;
 }
 const clearNewColumnNameInput = () => document.querySelector<HTMLInputElement>('#editColumnName')!.value = '';
+
+const moveColumnOnePlaceToRight = (columnId: string) => new MoveColumn(getTable()).moveOnePlaceToRight(columnId);
+const moveColumnOnePlaceToLeft = (columnId: string) => new MoveColumn(getTable()).moveOnePlaceToLeft(columnId);

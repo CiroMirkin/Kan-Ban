@@ -20,8 +20,14 @@ export default class ListOfColumnsView {
         columnElement.innerHTML = `
             <p columnName="${name}">${name}</p>
             <footer id="${id}">
-                <button option="edit">Editar</button>
-                <button option="delete">Eliminar</button>
+                <div id="${id}">
+                    <button option="movePrev"> <- </button>
+                    <button option="moveNext"> -> </button>
+                </div>
+                <div id="${id}">
+                    <button option="edit">Editar</button>
+                    <button option="delete">Eliminar</button>
+                </div>
             </footer>
         `;
         return columnElement
