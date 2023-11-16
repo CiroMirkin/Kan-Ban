@@ -1,5 +1,6 @@
 import { columnView, informationForShowTheColumn } from "../model/columnModel/columnViewInterface";
-import { task } from "../model/taskModel/taskInterface";
+import { task } from "../entity/task/taskInterface";
+import DefaultTaskView from "./taskView";
 
 export default class ColumnView implements columnView {
       constructor() {}
@@ -22,7 +23,8 @@ export default class ColumnView implements columnView {
             const listOfTask: Array<task> = columnInformation.listOfTask
             const column = this.getColumnElement(columnId, columnName)
             listOfTask.forEach((task: task) => {
-                  const taskElement: HTMLElement = task.getTaskElementForShowIt()
+                  const taskView = new DefaultTaskView()
+                  const taskElement: HTMLElement = task.getTaskElementForShowIt(taskView)
                   column.childNodes.item(1).appendChild(taskElement)
             })
             return column

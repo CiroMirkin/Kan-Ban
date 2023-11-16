@@ -1,4 +1,4 @@
-import { taskView } from "./taskViewInterface";
+import { taskView } from "../../view/taskViewInterface";
 
 export interface taskInformation {
       id: string,
@@ -8,10 +8,9 @@ export interface taskInformation {
 export interface task {
       id: string;
       text: string;
-      taskView: taskView;
       idOfColumnWheresTheTask: string;
       changeColumn(columnId: string): any;
       changeText(newText: string): any;
       getTaskInformation(): taskInformation;
-      getTaskElementForShowIt(): HTMLElement;
+      getTaskElementForShowIt(taskViewModel: taskView): HTMLElement;
 }

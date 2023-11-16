@@ -1,20 +1,17 @@
-import { task } from "../../model/taskModel/taskInterface";
-import { taskInformation } from "../../model/taskModel/taskInterface";
-import DefaultTaskView from "../../view/taskView";
-import { taskView } from "../../model/taskModel/taskViewInterface";
+import { taskView } from "../../view/taskViewInterface";
+import { task } from "./taskInterface";
+import { taskInformation } from "./taskInterface";
 
 export type NameOfOptionsOnTasks = 'movePrev' | 'moveNext' | 'delete' | 'edit' | 'archive'
 
 export default class Task implements task {
       id: string;
       text: string;
-      taskView: taskView
       idOfColumnWheresTheTask: string;
       constructor({ text, id, idOfColumnWheresTheTask }: taskInformation) {
             this.text = text
             this.id = id
             this.idOfColumnWheresTheTask = idOfColumnWheresTheTask
-            this.taskView = new DefaultTaskView()
       }
       changeColumn(columnId: string): any {
             this.idOfColumnWheresTheTask = columnId;
@@ -29,8 +26,8 @@ export default class Task implements task {
                   idOfColumnWheresTheTask: this.idOfColumnWheresTheTask
             }
       }
-      getTaskElementForShowIt(): HTMLElement {
-            const task = this.taskView.getTaskElementForShowIt(this)
+      getTaskElementForShowIt(taskView: taskView): HTMLElement {
+            const task = taskView.getTaskElementForShowIt(this)
             return task
       }
 }

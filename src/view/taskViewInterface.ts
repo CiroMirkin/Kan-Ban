@@ -1,4 +1,4 @@
-import { task } from "./taskInterface";
+import { task } from "../entity/task/taskInterface";
 
 export interface taskView {
       getTaskElement(taskId: string): HTMLElement;
